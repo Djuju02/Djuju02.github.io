@@ -1,0 +1,179 @@
+/* Styles généraux pour le corps de la page */
+#theme-toggle, #language-toggle {
+    position: fixed; /* Positionnement fixe par rapport à la fenêtre du navigateur */
+    right: 20px; /* 20 pixels depuis le bord droit */
+    cursor: pointer; /* Curseur de pointeur pour indiquer un élément cliquable */
+    z-index: 1000; /* S'assure que les icônes apparaissent au-dessus des autres éléments */
+}
+#theme-toggle {
+    bottom: 70px; /* Positionné à 60 pixels du bas */
+}
+#language-toggle {
+    bottom: 20px; /* Positionné à 20 pixels du bas */
+}
+#theme-toggle img, #language-toggle img {
+    width: 40px; /* Largeur fixe de l'icône */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    display: block; /* Assure que l'img agit comme un bloc pour les marges */
+    transition: transform 0.3s; /* Transition douce pour les effets de survol */
+}
+#theme-toggle img:hover, #language-toggle img:hover {
+    transform: scale(1.1); /* Agrandit l'icône lors du survol */
+}
+
+
+/* Styles pour la Page */
+body {
+    background: linear-gradient(to bottom, #0d072b, #0d072b, #201b82, #6e07b7); /* Dégradé qui commence transparent et devient bleu/violet */
+    color: #FFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+main {
+    padding-bottom: 60px; /* Ajoutez un padding au bas du main pour éviter que le contenu ne soit caché sous le footer */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.btn {
+    display: inline-block; /* Assure que les boutons ne prennent que l'espace nécessaire */
+    padding: 10px 20px; /* Espace à l'intérieur du bouton */
+    background-color: #4CAF50; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    text-decoration: none; /* Supprime le soulignement du texte */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s; /* Transition douce pour les effets de survol */
+}
+
+
+
+/* Styles pour la barre Menu */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    padding: 0 20px; /* Assurez-vous que cet espacement est suffisant */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#name {
+    color: rgb(255, 255, 255); /* Assurez-vous que la couleur est visible sur le fond */
+    font-size: 24px; /* Taille de la police */
+    font-family: 'Georgia', serif; /* Une police plus élégante */
+    padding: 10px 0; /* Espacement autour du texte */
+}
+
+nav {
+    text-align: right;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0 20px 0 0; /* Ajoute un peu de marge à droite pour empêcher le débordement */
+    list-style-type: none;
+    line-height: 50px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFF;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: color 0.3s, font-size 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+    font-size: 17px;
+}
+
+
+/* Styles pour la section Accueil */
+.accueil {
+    background-color: #980808;
+    color: white;
+    padding: 100px 0; /* Ajoutez un padding vertical pour l'espacement */
+    text-align: center; /* Centre le texte horizontalement */
+    /* Centre le texte verticalement */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-accueil {
+    max-width: 800px; /* Limite la largeur du contenu pour une meilleure lisibilité */
+}
+
+#home-image img {
+    width: 100%;  /* Assurez-vous que l'image couvre bien la largeur entière */
+    max-height: 100vh; /* Limite la hauteur de l'image à 100% de la hauteur du viewport */
+    display: block; /* Élimine tout espace blanc sous l'image */
+    object-fit: cover; /* Assure que l'image couvre la zone définie sans déformer son ratio */
+}
+
+/* Styles pour la section Présentation */
+.presentation {
+    background-color: #181717;
+    color: white;
+    padding: 30px 0; /* Réduit le padding vertical pour moins d'espace */
+    overflow: auto; /* Assure que le conteneur s'étend pour englober le contenu flottant */
+}
+
+.container-presentation {
+    max-width: 100%; /* Ou toute autre largeur selon le design de votre site */
+    margin: 0 auto; /* Centre le contenu horizontalement */
+    padding: 0 30px; /* Padding horizontal pour ne pas coller au bord de l'écran */
+}
+
+.presentation img {
+    float: right; /* Permet au texte de s'enrouler autour de l'image */
+    margin-left: 20px; /* Espace entre l'image et le texte */
+    max-height: 50vh; /* Hauteur maximale pour l'image */
+    width: auto; /* Largeur automatique pour maintenir l'aspect ratio */
+}
+
+/* Styles pour la section Parcours */
+.parcours {
+    background-color: #000000;
+    color: white;
+    padding: 100px 0; /* Ajoutez un padding vertical pour l'espacement */
+}
+.container-parcours {
+    max-width: 800px; /* Limite la largeur du contenu pour une meilleure lisibilité */
+}
+
+/* Styles pour la section Projets */
+.projets {
+    background-color: #00021f; /* Fond noir pour la section */
+    color: white;
+    padding: 20px 0; /* Espacement vertical pour la section */
+}
+
+/* Styles pour la section Contact */
+.contact {
+    background-color: #000000;
+    color: white;
+    padding: 100px 0; /* Ajoutez un padding vertical pour l'espacement */
+}
+.container-contact {
+    max-width: 800px; /* Limite la largeur du contenu pour une meilleure lisibilité */
+}
+
+/* Styles pour le pied de Page */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(248, 248, 248, 0.3); /* Couleur de fond semi-transparente */
+    border-top: 1px solid #ccc;
+    color: #333; /* Couleur du texte, ajustez selon votre besoin */
+}

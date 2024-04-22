@@ -1,0 +1,42 @@
+.custom-scrollbar {
+    position: fixed;
+    right: 50px;  /* Espace adéquat pour le texte */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;  /* Alignez les éléments à droite */
+    z-index: 1000;
+}
+
+.scroll-dot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alignement du contenu à droite */
+    padding: 3px 0px;
+    margin: 5px 0;
+    color: rgb(255, 255, 255); /* Couleur des textes */
+    text-decoration: none;
+    font-size: 16px; /* Taille initiale du texte */
+    cursor: pointer;
+    transition: font-size 0.3s ease, color 0.3s ease; /* Transition pour l'effet de zoom et couleur */
+    width: 120px; /* Fixer la largeur pour uniformiser les points */
+    position: relative; /* Nécessaire pour le positionnement absolu de ::after */
+}
+
+.scroll-dot::after {
+    content: "•";
+    font-size: 40px; /* Taille des boules */
+    color: rgb(255, 255, 255); /* Couleur des boules */
+    margin-left: 10px; /* Espacement entre le texte et la boule */
+    transition: font-size 0.3s ease; /* Transition pour l'effet de zoom */
+}
+
+.scroll-dot.active {
+    font-size: 30px; /* Taille augmentée pour la section active */
+    color: grey; /* Couleur pour la section active */
+}
+
+.scroll-dot.active::after {
+    font-size: 60px; /* Taille augmentée pour la boule de la section active */
+}

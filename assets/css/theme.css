@@ -1,0 +1,36 @@
+/* Définition des variables de couleur de base */
+:root {
+    --text-color: #333; /* Couleur de texte pour le thème clair */
+    --bg-color: #fff; /* Couleur de fond pour le thème clair */
+    --header-bg-color: var(--navbar-color-light); /* Utilise la variable pour la couleur de l'en-tête */
+    --border-color: #ccc; /* Couleur des bordures pour le thème clair */
+    --navbar-color-light: #333; /* Gris pour le thème clair */
+    --navbar-color-dark: #000; /* Noir pour le thème sombre */
+}
+
+/* Application des variables par défaut */
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+}
+
+nav ul li a, footer, main section {
+    border-color: var(--border-color);
+}
+
+/* Adaptations pour le thème sombre */
+[data-theme="dark"] {
+    --text-color: #ddd; /* Couleur de texte pour le thème sombre */
+    --bg-color: #333; /* Couleur de fond pour le thème sombre */
+    --header-bg-color: var(--navbar-color-dark); /* Couleur de fond de l'en-tête pour le thème sombre */
+    --border-color: #444; /* Couleur des bordures pour le thème sombre */
+}
+
+/* Styles additionnels pour le thème sombre si nécessaire */
+[data-theme="dark"] header, [data-theme="dark"] nav ul li a {
+    /* Styles spécifiques au thème sombre */
+}

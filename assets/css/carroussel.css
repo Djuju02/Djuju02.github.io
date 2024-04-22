@@ -1,0 +1,66 @@
+/* Style pour la fenêtre modale */
+.owl-carousel .item {
+    text-align: center; /* Centre le contenu de chaque item */
+    padding: 20px; /* Espacement à l'intérieur de chaque item */
+}
+
+.owl-carousel .item img {
+    max-width: 100%; /* Assurez que les images ne dépassent pas le conteneur */
+    height: auto; /* Garde le ratio de l'image */
+    margin-bottom: 20px; /* Espacement entre l'image et le titre */
+}
+
+.owl-carousel h4 {
+    margin-bottom: 10px; /* Espacement sous le titre */
+}
+
+.owl-carousel p {
+    font-size: 14px; /* Taille de la police pour les descriptions */
+    margin-bottom: 20px; /* Espacement sous la description */
+}
+
+.modal {
+    display: none; /* Cachée par défaut */
+    position: fixed; /* Reste en place même lors du défilement de la page */
+    z-index: 1001; /* S'assure qu'elle est au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largeur totale */
+    height: 100%; /* Hauteur totale */
+    overflow: auto; /* Permet le défilement si nécessaire */
+    background-color: rgba(0,0,0,0.4); /* Couleur de fond semi-transparente */
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 15% auto; /* Positionnement au centre */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur du contenu */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-text {
+    color: white; /* Texte en blanc pour contraster avec le fond sombre */
+    margin-top: 20px;
+}
+
+.modal img {
+    float: left; /* Image à gauche */
+    margin-right: 20px; /* Espacement entre l'image et le texte */
+    width: 40%; /* Largeur de l'image */
+    height: auto; /* Hauteur automatique */
+}
