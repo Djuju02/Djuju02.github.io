@@ -14,6 +14,7 @@
   --font-size-large: 1.5em;
   --font-size-small: 0.875em;
   --spacing: 20px;
+  --spacing-smaller: 10px; /* Nouvelle variable */
   --border-radius: 10px;
 }
 
@@ -49,10 +50,11 @@ nav {
   background-color: #0d1b2a;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 var(--spacing);
+  justify-content: space-between;
+  padding: 0 var(--spacing-smaller); /* Ajusté */
   z-index: 1000;
   height: 70px;
+  box-sizing: border-box; /* Ajouté */
 }
 
 .nav-links {
@@ -67,7 +69,7 @@ nav {
   margin: 0 var(--spacing);
 }
 
-.nav a {
+.nav-links a {
   color: #fff;
   text-decoration: none;
   font-size: var(--font-size-base);
@@ -75,15 +77,57 @@ nav {
   transition: color 0.3s ease;
 }
 
-.nav a:hover {
+.nav-links a:hover {
   color: var(--color-primary);
 }
 
+/* Boutons dans la navigation */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-buttons > *:not(:first-child) {
+  margin-left: var(--spacing); /* Seuls les éléments après le premier ont une marge gauche */
+}
+
+/* Bouton pour télécharger le CV */
+#cv-download {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff; /* Couleur du texte en blanc pour contraster avec le fond */
+  font-size: var(--font-size-base);
+  background-color: #183350; /* Couleur de fond du bouton */
+  padding: 7px 10px; /* Espace autour du contenu */
+  border-radius: var(--border-radius); /* Bords arrondis */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition pour les effets */
+}
+
+#cv-download img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+#cv-download span {
+  font-weight: bold;
+}
+
+#cv-download:hover {
+  background-color: var(--color-primary-dark); /* Couleur de fond plus foncée au survol */
+  transform: translateY(-2px); /* Légère remontée au survol */
+}
+
+#cv-download:active {
+  transform: translateY(0); /* Annule la remontée lors du clic */
+}
+
+
+/* Bouton pour changer la langue */
 #language-toggle {
-  margin-left: auto;
-  margin-right: var(--spacing);
-  width: 40px;
-  height: 40px;
+  width: 50px; /* Augmenté pour accueillir l'icône plus grande */
+  height: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -93,10 +137,11 @@ nav {
 }
 
 #language-toggle img {
-  width: 100%;
-  height: auto;
+  width: 34px; /* Taille augmentée */
+  height: 34px;
   display: block;
 }
+
 
 /* Bouton mode sombre/clair */
 #theme-toggle {
@@ -531,6 +576,7 @@ body.dark-mode .close-btn:hover {
   align-items: center;
   justify-content: center;
   padding: 80px var(--spacing);
+  text-align: justify;
 }
 
 .about-container {
@@ -574,54 +620,188 @@ body.dark-mode .close-btn:hover {
   }
 }
 
-/* Styles pour la section "Me contacter" */
+/* Styles pour la section Me contacter */
 .contact-section {
+  padding: 80px var(--spacing);
   text-align: center;
 }
 
-.contact-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: var(--spacing);
+.contact-section h2 {
+  margin-bottom: 20px;
 }
 
-.contact-item {
-  display: flex;
-  align-items: center;
-  margin: var(--spacing);
-}
-
-.contact-item img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: var(--spacing);
-}
-
-.contact-item a {
+.contact-section p {
+  margin-bottom: 40px;
+  font-size: 1.1em;
   color: var(--color-text-light);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Justification du texte */
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-card {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 30px 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card a {
+  color: inherit;
   text-decoration: none;
-  font-size: var(--font-size-large);
 }
 
-.contact-item a:hover {
+.contact-icon {
+  font-size: 50px;
   color: var(--color-primary);
+  margin-bottom: 15px;
 }
 
-body.dark-mode .contact-item a {
+.contact-card h3 {
+  margin-bottom: 10px;
+  color: var(--color-primary-dark);
+}
+
+.contact-card p {
+  font-size: 1em;
+  color: var(--color-text-light);
+  word-wrap: break-word;
+}
+
+body.dark-mode .contact-card {
+  background-color: var(--color-bg-dark);
   color: var(--color-text-dark);
 }
 
-@media (max-width: 600px) {
-  .contact-item {
-    flex-direction: column;
-    text-align: center;
-  }
+body.dark-mode .contact-card h3 {
+  color: var(--color-primary);
+}
 
-  .contact-item img {
-    margin-right: 0;
-    margin-bottom: var(--spacing);
-  }
+body.dark-mode .contact-card p {
+  color: var(--color-text-dark);
+}
+
+/* Styles pour la section Mes compétences */
+.skills-section {
+  padding: 80px var(--spacing);
+}
+
+.skills-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+  font-size: 40px;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.skill-card h3 {
+  margin-bottom: 15px;
+  color: var(--color-primary-dark);
+}
+
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.skill-card ul li {
+  margin-bottom: 10px;
+}
+
+.skill-card ul li strong {
+  color: var(--color-text-light);
+}
+
+body.dark-mode .skill-card {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+body.dark-mode .skill-card h3 {
+  color: var(--color-primary);
+}
+
+body.dark-mode .skill-card ul li strong {
+  color: var(--color-text-dark);
+}
+
+/* Styles pour le pied de page */
+footer {
+  background-color: var(--color-bg-light);
+  padding: 20px var(--spacing);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+.footer-socials {
+  margin-top: 10px;
+}
+
+.footer-socials a {
+  color: var(--color-text-light);
+  margin: 0 10px;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--color-primary);
+}
+
+body.dark-mode footer {
+  background-color: var(--color-bg-dark);
+}
+
+body.dark-mode .footer-content p,
+body.dark-mode .footer-socials a {
+  color: var(--color-text-dark);
 }

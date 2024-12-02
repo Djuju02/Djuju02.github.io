@@ -8,6 +8,8 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <!-- Feuilles de style -->
   <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome CSS pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -20,12 +22,20 @@
         <li><a href="#about" class="scroll-link">Qui suis-je ?</a></li>
         <li><a href="#experience" class="scroll-link">Mes expériences</a></li>
         <li><a href="#projects" class="scroll-link">Mes projets</a></li>
+        <li><a href="#skills" class="scroll-link">Mes compétences</a></li>
         <li><a href="#contact" class="scroll-link">Me contacter</a></li>
-      </ul>    
-      <!-- Bouton pour changer la langue -->
-      <button id="language-toggle" aria-label="Changer la langue">
-        <img src="assets/icon-fr.png" alt="Changer de langue">
-      </button>
+      </ul>
+      <div class="nav-buttons">
+        <!-- Bouton pour télécharger le CV -->
+        <a id="cv-download" href="CV_Julien_SALEH_FR.pdf" target="_blank" class="cv-button">
+          <img src="assets/icon-cv.png" alt="Télécharger le CV">
+          <span>CV FR</span>
+        </a>
+        <!-- Bouton pour changer la langue -->
+        <button id="language-toggle" aria-label="Changer la langue">
+          <img src="assets/icon-fr.png" alt="Changer de langue">
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -39,16 +49,15 @@
     <section id="about" class="about-section">
       <div class="about-container">
         <div class="about-image">
-          <img src="assets/picture-perso.png" alt="Photo de Julien Saleh">
+          <img src="assets/picture-perso.jpg" alt="Photo de Julien Saleh">
         </div>
         <div class="about-text">
           <h2>Qui suis-je ?</h2>
-          <p>Je suis un ingénieur passionné par la technologie et l'innovation.</p>
+          <p>Passionné par la technologie et l'innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l'affût des dernières avancées technologiques, je m'efforce de créer des solutions sécurisées et innovantes. N'hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l'informatique.</p>
         </div>
       </div>
     </section>
     <hr>
-
 
     <!-- Section Mes expériences -->
     <section id="experience">
@@ -57,18 +66,18 @@
         <!-- Expérience 1 -->
         <div class="experience-item">
           <div class="experience-icon">
-            <img src="assets/NDO.png" alt="Icone Cybersécurité">
+            <img src="assets\NDO.png" alt="Icône Cybersécurité">
           </div>
           <div class="experience-content">
             <h3>Ingénieur Cybersécurité</h3>
             <p>2023 - Présent</p>
-            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactive.</p>
+            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
           </div>
         </div>
         <!-- Expérience 2 -->
         <div class="experience-item">
           <div class="experience-icon">
-            <img src="assets/NDO.png" alt="Icone IoT">
+            <img src="assets\NDO.png" alt="Icône IoT">
           </div>
           <div class="experience-content">
             <h3>Consultant IoT</h3>
@@ -79,7 +88,7 @@
         <!-- Expérience 3 -->
         <div class="experience-item">
           <div class="experience-icon">
-            <img src="assets/NDO.png" alt="Icone Développement Logiciel">
+            <img src="assets\NDO.png" alt="Icône Développement Logiciel">
           </div>
           <div class="experience-content">
             <h3>Stage en Développement Logiciel</h3>
@@ -90,18 +99,18 @@
         <!-- Expérience 4 -->
         <div class="experience-item">
           <div class="experience-icon">
-            <img src="assets/NDO.png" alt="Icone Développement Logiciel">
+            <img src="assets\NDO.png" alt="Icône IoT">
           </div>
           <div class="experience-content">
-            <h3>Stage en Développement Logiciel</h3>
-            <p>2020 - 2021</p>
-            <p>Développement de nouvelles fonctionnalités pour une application de gestion de projet.</p>
+            <h3>Consultant IoT</h3>
+            <p>2021 - 2023</p>
+            <p>Participation à des projets de développement de solutions connectées pour l'industrie automobile.</p>
           </div>
         </div>
         <!-- Expérience 5 -->
         <div class="experience-item">
           <div class="experience-icon">
-            <img src="assets/NDO.png" alt="Icone Développement Logiciel">
+            <img src="assets\NDO.png" alt="Icône Développement Logiciel">
           </div>
           <div class="experience-content">
             <h3>Stage en Développement Logiciel</h3>
@@ -131,27 +140,27 @@
         </div>
         <!-- Projet 3 -->
         <div class="item" data-description="Description complète du projet 3.">
-          <img src="assets/project1.jpg" alt="Projet 3">
+          <img src="assets/project3.jpg" alt="Projet 3">
           <h3>Éolienne urbaine</h3>
           <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
         </div>
         <!-- Projet 4 -->
-        <div class="item" data-description="Description complète du projet 4.">
-          <img src="assets/project2.jpg" alt="Projet 4">
-          <h3>Application de sécurité IoT</h3>
-          <p>Développement d'une application mobile pour sécuriser les objets connectés.</p>
+        <div class="item" data-description="Description complète du projet 1.">
+          <img src="assets/project1.jpg" alt="Projet 1">
+          <h3>Coupe de France de Robotique</h3>
+          <p>Développement de robots autonomes pour des compétitions internationales.</p>
         </div>
         <!-- Projet 5 -->
-        <div class="item" data-description="Description complète du projet 5.">
-          <img src="assets/project1.jpg" alt="Projet 5">
-          <h3>Système de reconnaissance d'images</h3>
-          <p>Implémentation d'un système de vision par ordinateur pour le suivi d'objets.</p>
+        <div class="item" data-description="Description complète du projet 2.">
+          <img src="assets/project2.jpg" alt="Projet 2">
+          <h3>Station blanche embarquée</h3>
+          <p>Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
         </div>
         <!-- Projet 6 -->
-        <div class="item" data-description="Description complète du projet 6.">
-          <img src="assets/project2.jpg" alt="Projet 6">
-          <h3>Application de sécurité IoT</h3>
-          <p>Développement d'une application mobile pour sécuriser les objets connectés.</p>
+        <div class="item" data-description="Description complète du projet 3.">
+          <img src="assets/project3.jpg" alt="Projet 3">
+          <h3>Éolienne urbaine</h3>
+          <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
         </div>
       </div>
       <!-- Indicateurs de pagination -->
@@ -159,22 +168,146 @@
     </section>
     <hr>
 
+      <!-- Section Mes compétences -->
+      <section id="skills" class="skills-section">
+      <h2>Mes compétences</h2>
+      <div class="skills-grid">
+        <!-- Compétence 1 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Développement</h3>
+          <ul>
+            <li><strong>Langages :</strong> C#, C, C++, Python, JavaScript, TypeScript, HTML, CSS, LaTeX</li>
+            <li><strong>Technologies :</strong> JSON, XML, Git</li>
+          </ul>
+        </div>
+        <!-- Compétence 2 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Réseau & Systèmes</h3>
+          <ul>
+            <li><strong>Outils :</strong> Wireshark, Cisco Packet Tracer, VirtualBox, Docker</li>
+            <li><strong>Systèmes :</strong> Linux (Kali, Ubuntu), Windows, MacOS</li>
+          </ul>
+        </div>
+        <!-- Compétence 3 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Cybersécurité</h3>
+          <ul>
+            <li><strong>Concepts :</strong> OWASP Top 10, Cryptographie, Sécurité réseau</li>
+            <li><strong>Outils :</strong> Burp Suite, Reverse Engineering</li>
+          </ul>
+        </div>
+        <!-- Compétence 4 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Bases de Données</h3>
+          <ul>
+            <li><strong>SGBD :</strong> MySQL, Oracle</li>
+            <li><strong>Modélisation :</strong> Conception de bases de données</li>
+          </ul>
+        </div>
+        <!-- Compétence 5 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-users-cog"></i>
+          </div>
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Leadership et gestion d'équipe</li>
+            <li>Travail en équipe</li>
+            <li>Design Thinking</li>
+            <li>Méthodologies Agiles (Scrum)</li>
+          </ul>
+        </div>
+        <!-- Compétence 6 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Certifications</h3>
+          <ul>
+            <li>TOEIC : 900/990</li>
+            <li>Certification Agile Scrum</li>
+            <li>Diplôme de Design Thinking</li>
+          </ul>
+        </div>
+        <!-- Compétence 7 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <h3>Langues</h3>
+          <ul>
+            <li>Français : Langue maternelle</li>
+            <li>Anglais : Niveau B2</li>
+            <li>Espagnol : Notions</li>
+            <li>Arabe : Notions</li>
+          </ul>
+        </div>
+        <!-- Compétence 8 -->
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Centres d'intérêts</h3>
+          <ul>
+            <li>Tennis (17 ans)</li>
+            <li>Escalade</li>
+            <li>Voyages</li>
+            <li>Robotique & Modélisation 3D</li>
+            <li>Cuisine</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <hr>
+
     <!-- Section Me contacter -->
     <section id="contact" class="contact-section">
       <h2>Me contacter</h2>
-      <p>N'hésitez pas à me contacter via LinkedIn ou par email.</p>
-      <div class="contact-container">
-        <div class="contact-item">
+      <p>N'hésitez pas à échanger avec moi, je serai ravi de discuter de nouvelles opportunités ou simplement de partager autour de sujets qui nous passionnent.</p>
+      <div class="contact-cards">
+        <!-- Carte LinkedIn -->
+        <div class="contact-card">
           <a href="https://www.linkedin.com/in/juliensaleh/" target="_blank">
-            <img src="assets/icon-linkedin.png" alt="LinkedIn">
+            <i class="fab fa-linkedin contact-icon"></i>
+            <h3>LinkedIn</h3>
+            <p>linkedin.com/in/juliensaleh/</p>
           </a>
-          <span><a href="https://www.linkedin.com/in/juliensaleh/" target="_blank">linkedin.com/in/juliensaleh/</a></span>
         </div>
-        <div class="contact-item">
+        <!-- Carte Email -->
+        <div class="contact-card">
           <a href="mailto:juliensaleh@hotmail.fr">
-            <img src="assets/icon-mail.png" alt="Email">
+            <i class="fas fa-envelope contact-icon"></i>
+            <h3>Email</h3>
+            <p>juliensaleh@hotmail.fr</p>
           </a>
-          <span><a href="mailto:juliensaleh@hotmail.fr">juliensaleh@hotmail.fr</a></span>
+        </div>
+        <!-- Carte GitHub -->
+        <div class="contact-card">
+          <a href="https://github.com/Djuju02" target="_blank">
+            <i class="fab fa-github contact-icon"></i>
+            <h3>GitHub</h3>
+            <p>github.com/Djuju02</p>
+          </a>
+        </div>
+        <!-- Carte Root Me -->
+        <div class="contact-card">
+          <a id="rootme-link" href="https://www.root-me.org/Djuju02?lang=fr" target="_blank">
+            <i class="fas fa-user-secret contact-icon"></i>
+            <h3>Root Me</h3>
+            <p>root-me.org/Djuju02</p>
+          </a>
         </div>
       </div>
     </section>
@@ -183,15 +316,19 @@
 
   <!-- Pied de page -->
   <footer>
-    <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+    <div class="footer-content">
+      <p>&copy; 2024 Julien Saleh. Tous droits réservés.</p>
+    </div>
   </footer>
 
   <!-- Scripts JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Owl Carousel JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- Votre Script -->
   <script src="script.js" defer></script>
 
-    <!-- Popup pour afficher les détails du projet -->
+  <!-- Popup pour afficher les détails du projet -->
   <div id="project-popup" class="popup">
     <div class="popup-content">
       <span class="close-btn">&times;</span>

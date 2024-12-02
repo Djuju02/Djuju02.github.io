@@ -40,32 +40,46 @@ initializeTheme();
 
 // GESTION DE LA LANGUE
 const languageToggle = document.getElementById('language-toggle');
+const cvDownload = document.getElementById('cv-download'); // Ajouté pour le CV
+const rootmeLink = document.getElementById('rootme-link'); // Ajouté pour le lien Root Me
+
 const translations = {
   fr: {
     about: 'Qui suis-je ?',
     experience: 'Mes expériences',
     projects: 'Mes projets',
+    skills: 'Mes compétences',
     contact: 'Me contacter',
-    aboutText: 'Je suis un ingénieur passionné par la technologie et l\'innovation.',
-    contactText: 'N\'hésitez pas à me contacter via LinkedIn ou par email.',
-    lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    aboutText: 'Passionné par la technologie et l\'innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l\'affût des dernières avancées technologiques, je m\'efforce de créer des solutions sécurisées et innovantes. N\'hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l\'informatique.',
+    contactText: 'N\'hésitez pas à échanger avec moi, je serai ravi de discuter de nouvelles opportunités ou simplement de partager autour de sujets qui nous passionnent.',
+    cvText: 'CV FR', // Ajouté pour le texte du bouton CV en français
+    cvFile: 'CV_Julien_SALEH_FR.pdf', // Ajouté pour le fichier CV en français
+    lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    rootMeLink: 'https://www.root-me.org/Djuju02?lang=fr',
+    rootMeText: 'Root Me',
+    footerText: '&copy; 2024 Julien Saleh. Tous droits réservés.'
   },
   en: {
     about: 'About Me',
     experience: 'My Experiences',
     projects: 'My Projects',
+    skills: 'My Skills',
     contact: 'Contact Me',
-    aboutText: 'I am an engineer passionate about technology and innovation.',
-    contactText: 'Feel free to contact me via LinkedIn or email.',
-    lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    aboutText: 'Passionate about technology and innovation, I am an engineer specializing in cybersecurity with a strong background in development and networking. Always keen on the latest technological advancements, I strive to create secure and innovative solutions. Feel free to contact me to discuss projects, collaborate, or simply share our common passion for IT.',
+    contactText: 'Feel free to reach out to me; I would be delighted to discuss new opportunities or simply share insights on topics that inspire us.',
+    cvText: 'CV EN', // Ajouté pour le texte du bouton CV en anglais
+    cvFile: 'CV_Julien_SALEH_EN.pdf', // Ajouté pour le fichier CV en anglais
+    lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    rootMeLink: 'https://www.root-me.org/Djuju02?lang=en',
+    rootMeText: 'Root Me',
+    footerText: '&copy; 2024 Julien Saleh. All rights reserved.'
   }
 };
 
-
 // Fonction pour changer la langue
 function changeLanguage(lang) {
-  const navLinks = document.querySelectorAll('nav a');
-  const keys = ['about', 'experience', 'projects', 'contact'];
+  const navLinks = document.querySelectorAll('nav a.scroll-link');
+  const keys = ['about', 'experience', 'projects', 'skills', 'contact'];
 
   // Mise à jour des liens de navigation
   navLinks.forEach((link, index) => {
@@ -87,7 +101,24 @@ function changeLanguage(lang) {
       paragraph.textContent = translations[lang][`${sectionId}Text`];
     }
   });
+
+  // Mise à jour du bouton de téléchargement du CV
+  if (cvDownload) {
+    cvDownload.querySelector('span').textContent = translations[lang]['cvText'];
+    cvDownload.setAttribute('href', translations[lang]['cvFile']);
+  }
+  // Mise à jour du lien Root Me
+  if (rootmeLink) {
+    rootmeLink.setAttribute('href', translations[lang]['rootMeLink']);
+    rootmeLink.querySelector('h3').textContent = translations[lang]['rootMeText'];
+  }
+  // Mise à jour du pied de page
+  const footerText = document.querySelector('footer .footer-content p');
+  if (footerText && translations[lang]['footerText']) {
+    footerText.innerHTML = translations[lang]['footerText'];
+  }
 }
+
 
 
 // Gestion du clic pour changer de langue
@@ -107,6 +138,8 @@ if (languageToggle) {
   if (languageToggle.querySelector('img')) {
     languageToggle.querySelector('img').src = 'assets/icon-fr.png';
   }
+  // Appeler changeLanguage pour initialiser le texte du bouton CV
+  changeLanguage('fr');
 }
 
 // INITIALISATION DU CARROUSEL AVEC OWL CAROUSEL
@@ -146,7 +179,7 @@ $(document).ready(function () {
     // Gestion du clic sur les indicateurs
     $(".indicator").on("click", function () {
       const index = $(this).data("index");
-      $carousel.trigger("to.owl.carousel", [index, 300]);
+      $carousel.trigger("to.owl.carousel", [index, 300, true]); // Modification ici
     });
   }
 
@@ -160,8 +193,9 @@ $(document).ready(function () {
   }
 });
 
+
 // GESTION DU DÉFILEMENT FLUIDE
-document.querySelectorAll('nav a').forEach(link => {
+document.querySelectorAll('nav a.scroll-link').forEach(link => {
   link.addEventListener('click', event => {
     event.preventDefault();
     const targetId = link.getAttribute('href').slice(1);
@@ -202,9 +236,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Fermer le popup en cliquant sur la croix
-  closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  }
 
   // Fermer le popup en cliquant en dehors du contenu
   window.addEventListener('click', event => {
