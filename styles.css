@@ -1,0 +1,627 @@
+:root {
+  /* Couleurs principales */
+  --color-primary: #0d6efd;
+  --color-primary-dark: #084298;
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #121212;
+  --color-text-light: #333333;
+  --color-text-dark: #f1f1f1;
+  --color-border: #ddd;
+  --color-hover: #f1f1f1;
+
+  /* Tailles */
+  --font-size-base: 16px;
+  --font-size-large: 1.5em;
+  --font-size-small: 0.875em;
+  --spacing: 20px;
+  --border-radius: 10px;
+}
+
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--color-text-light);
+  background-color: var(--color-bg-light);
+}
+
+/* Mode clair */
+body.light-mode {
+  color: var(--color-text-light);
+  background-color: var(--color-bg-light);
+}
+
+/* Mode sombre */
+body.dark-mode {
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-dark);
+}
+
+/* Barre de navigation */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0d1b2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--spacing);
+  z-index: 1000;
+  height: 70px;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 var(--spacing);
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+#language-toggle {
+  margin-left: auto;
+  margin-right: var(--spacing);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+
+#language-toggle img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bouton mode sombre/clair */
+#theme-toggle {
+  position: fixed;
+  bottom: var(--spacing);
+  right: var(--spacing);
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-bg-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode #theme-toggle {
+  background-color: #333;
+}
+
+#theme-toggle img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Sections */
+section {
+  padding-top: 40px;        /* Espace en haut préservé */
+  padding-bottom: 40px;     /* Espace en bas réduit */
+  padding-left: var(--spacing);
+  padding-right: var(--spacing);
+  /* min-height: 100vh; */  /* Optionnel : ajuster ou supprimer */
+}
+
+/* Première section pour éviter le chevauchement */
+section:first-of-type {
+  margin-top: 70px; /* Hauteur de la barre de navigation */
+}
+
+
+hr {
+  width: 50%;
+  margin: 0 auto var(--spacing);
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Formulaire */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing);
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode form {
+  background-color: #222;
+  border-color: #444;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: var(--spacing);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  box-sizing: border-box;
+  resize: none;
+}
+
+form button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Carrousel */
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+}
+
+.project-card {
+  flex: 0 0 33.333%;
+  box-sizing: border-box;
+  padding: var(--spacing);
+  text-align: center;
+  opacity: 0.8;
+  transform: scale(0.9);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+/* Arborescence des expériences */
+.experience-timeline {
+  position: relative;
+  margin: 70px auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px; /* Largeur du trait */
+  background-color: var(--color-primary); /* Couleur du trait */
+  z-index: 0; /* Place le trait derrière les icônes et contenus */
+  top: 70px;   /* Ajusté pour commencer au centre de la première icône */
+  bottom: 250px; /* Ajusté pour se terminer au centre de la dernière icône */
+}
+
+.experience-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 150px; /* Espacement fixe entre les éléments */
+  min-height: 150px; /* Assure que chaque item a une hauteur minimale */
+}
+
+.experience-icon {
+  position: absolute;
+  top: 50%; /* Centre verticalement par rapport à l'item */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%);
+  width: 70px; /* Hauteur fixe des icônes */
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  border: 3px solid var(--color-primary);
+  z-index: 2; /* Place l'icône devant le trait */
+  overflow: hidden; /* Assure que l'image ne dépasse pas du cercle */
+}
+
+/* Le reste de votre CSS reste inchangé */
+
+
+.experience-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Redimensionne l'image pour qu'elle s'adapte au cercle */
+}
+
+.experience-content {
+  position: absolute; /* Absolu pour un positionnement précis */
+  top: 50%; /* Aligne verticalement par rapport à l'icône */
+  transform: translateY(-50%); /* Centre le contenu verticalement */
+  padding: 20px;
+  width: 40%; /* Largeur fixe pour garder une forme uniforme */
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 3; /* Place le contenu devant le trait */
+  min-height: 100px; /* Hauteur minimale pour des petits textes */
+}
+
+.experience-item:nth-child(even) .experience-content {
+  left: calc(50% + 120px); /* Éloigne davantage la case à droite */
+  transform: translateY(-50%); /* Centre verticalement */
+}
+
+.experience-item:nth-child(odd) .experience-content {
+  right: calc(50% + 120px); /* Éloigne davantage la case à gauche */
+  transform: translateY(-50%); /* Centre verticalement */
+}
+
+/* Mode sombre */
+body.dark-mode .experience-content {
+  background-color: #222;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 20px;
+    width: 100%;
+    transform: none;
+  }
+
+  .experience-timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .experience-icon {
+    left: 20px;
+    transform: none;
+  }
+
+  .experience-content {
+    width: calc(100% - 60px);
+    left: 40px;
+  }
+
+  .experience-item:nth-child(even) .experience-content,
+  .experience-item:nth-child(odd) .experience-content {
+    left: 40px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+/* Conteneur des indicateurs */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style des pastilles */
+.carousel-indicators .indicator {
+  width: 14px;
+  height: 14px;
+  margin: 0 8px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Pastille active */
+.carousel-indicators .indicator.active {
+  background-color: var(--color-primary);
+}
+
+/* Mode sombre pour les indicateurs */
+body.dark-mode .carousel-indicators .indicator {
+  background-color: #444;
+}
+
+body.dark-mode .carousel-indicators .indicator.active {
+  background-color: var(--color-primary-dark);
+}
+
+/* Boutons de navigation personnalisés pour Owl Carousel */
+.custom-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2em;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-nav.left-nav {
+  left: 10px;
+}
+
+.custom-nav.right-nav {
+  right: 10px;
+}
+
+.custom-nav:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Styles pour les liens dans .nav-links */
+ul.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+ul.nav-links li {
+  margin: 0 var(--spacing);
+}
+
+ul.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+ul.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+ul.nav-links a:visited,
+ul.nav-links a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Effet au survol des projets dans le carrousel */
+.owl-carousel .item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.owl-carousel .item:hover {
+  transform: scale(1.05); /* Agrandit légèrement l'élément */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ajoute une ombre */
+}
+
+.owl-carousel .item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); /* Couche transparente par défaut */
+  transition: background-color 0.3s ease;
+}
+
+.owl-carousel .item:hover::after {
+  background-color: rgba(0, 0, 0, 0.2); /* Assombrit légèrement au survol */
+}
+
+/* Styles pour le popup */
+.popup {
+  display: none; /* Masqué par défaut */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  z-index: 2000; /* Au-dessus des autres éléments */
+}
+
+.popup-content {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 5% auto;
+  background-color: var(--color-bg-light);
+  padding: var(--spacing);
+  display: flex;
+  border-radius: var(--border-radius);
+}
+
+body.dark-mode .popup-content {
+  background-color: #222;
+}
+
+.popup-left, .popup-right {
+  width: 50%;
+}
+
+.popup-left img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.popup-right {
+  padding-left: var(--spacing);
+}
+
+.popup-right h3 {
+  margin-top: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2em;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+body.dark-mode .close-btn {
+  color: #ccc;
+}
+
+body.dark-mode .close-btn:hover {
+  color: #fff;
+}
+
+/* Styles pour la section "Qui suis-je ?" */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px var(--spacing);
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  width: 300px;
+}
+
+.about-text {
+  flex: 1;
+  padding-left: var(--spacing);
+}
+
+.about-text h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    padding-left: 0;
+    margin-top: var(--spacing);
+  }
+}
+
+/* Styles pour la section "Me contacter" */
+.contact-section {
+  text-align: center;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: var(--spacing);
+}
+
+.contact-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: var(--spacing);
+}
+
+.contact-item a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: var(--font-size-large);
+}
+
+.contact-item a:hover {
+  color: var(--color-primary);
+}
+
+body.dark-mode .contact-item a {
+  color: var(--color-text-dark);
+}
+
+@media (max-width: 600px) {
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-item img {
+    margin-right: 0;
+    margin-bottom: var(--spacing);
+  }
+}

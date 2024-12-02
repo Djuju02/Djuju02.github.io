@@ -1,253 +1,209 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Julien SALEH</title>
-    <!-- CSS de la Page -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <link rel="stylesheet" href="assets/css/carroussel.css">
-    <link rel="stylesheet" href="assets/css/scroll.css">
-    <link rel="stylesheet" href="assets/css/timeline.css">
-    <!-- CSS de Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <!-- js pour la traduction -->
-    <script src="js/theme.js" defer></script>
-    <script src="js/language.js" defer></script>
-    <script src="js/carroussel.js" defer></script>
-    <script src="js/scroll.js" defer></script>
-    <script src="js/timeline.js" defer></script>
-    <!-- jQuery et le JS de Owl Carousel -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <!-- Feuilles de style -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
-
 <body>
-    <header>
-        <div id="name" style="float: left; margin-left: 20px; font-size: 24px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-            Julien SALEH - Site en construction
-        </div>
-        <div id="theme-toggle" style="float: right;">
-            <img src="assets/icons/moon.png" alt="Changer le thème">
-        </div>
-        <div id="language-toggle" style="float: right;">
-            <img src="assets/icons/earth.png" alt="Changer la langue">
-        </div>
-        <nav> 
-            <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">Présentation</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- En-tête avec navigation -->
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about" class="scroll-link">Qui suis-je ?</a></li>
+        <li><a href="#experience" class="scroll-link">Mes expériences</a></li>
+        <li><a href="#projects" class="scroll-link">Mes projets</a></li>
+        <li><a href="#contact" class="scroll-link">Me contacter</a></li>
+      </ul>    
+      <!-- Bouton pour changer la langue -->
+      <button id="language-toggle" aria-label="Changer la langue">
+        <img src="assets/icon-fr.png" alt="Changer de langue">
+      </button>
+    </nav>
+  </header>
 
-    <!-- Barre de navigation personnalisée pour le défilement -->
-    <div class="custom-scrollbar">
-        <a href="#home" class="scroll-dot">Accueil</a>
-        <a href="#about" class="scroll-dot">Présentation</a>
-        <a href="#projects" class="scroll-dot">Projets</a>
-        <a href="#parcours" class="scroll-dot">Parcours</a>
-        <a href="#contact" class="scroll-dot">Contacts</a>
+  <!-- Bouton pour changer le thème -->
+  <button id="theme-toggle" aria-label="Changer le thème">
+    <img src="assets/icon-moon.png" alt="Changer de thème">
+  </button>
+
+  <main>
+    <!-- Section Qui suis-je ? -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-image">
+          <img src="assets/picture-perso.png" alt="Photo de Julien Saleh">
+        </div>
+        <div class="about-text">
+          <h2>Qui suis-je ?</h2>
+          <p>Je suis un ingénieur passionné par la technologie et l'innovation.</p>
+        </div>
+      </div>
+    </section>
+    <hr>
+
+
+    <!-- Section Mes expériences -->
+    <section id="experience">
+      <h2>Mes expériences</h2>
+      <div class="experience-timeline">
+        <!-- Expérience 1 -->
+        <div class="experience-item">
+          <div class="experience-icon">
+            <img src="assets/project1.jpg" alt="Icone Cybersécurité">
+          </div>
+          <div class="experience-content">
+            <h3>Ingénieur Cybersécurité</h3>
+            <p>2023 - Présent</p>
+            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactive.</p>
+          </div>
+        </div>
+        <!-- Expérience 2 -->
+        <div class="experience-item">
+          <div class="experience-icon">
+            <img src="assets/project2.jpg" alt="Icone IoT">
+          </div>
+          <div class="experience-content">
+            <h3>Consultant IoT</h3>
+            <p>2021 - 2023</p>
+            <p>Participation à des projets de développement de solutions connectées pour l'industrie automobile.</p>
+          </div>
+        </div>
+        <!-- Expérience 3 -->
+        <div class="experience-item">
+          <div class="experience-icon">
+            <img src="assets/project1.jpg" alt="Icone Développement Logiciel">
+          </div>
+          <div class="experience-content">
+            <h3>Stage en Développement Logiciel</h3>
+            <p>2020 - 2021</p>
+            <p>Développement de nouvelles fonctionnalités pour une application de gestion de projet.</p>
+          </div>
+        </div>
+        <!-- Expérience 4 -->
+        <div class="experience-item">
+          <div class="experience-icon">
+            <img src="assets/project2.jpg" alt="Icone Développement Logiciel">
+          </div>
+          <div class="experience-content">
+            <h3>Stage en Développement Logiciel</h3>
+            <p>2020 - 2021</p>
+            <p>Développement de nouvelles fonctionnalités pour une application de gestion de projet.</p>
+          </div>
+        </div>
+        <!-- Expérience 5 -->
+        <div class="experience-item">
+          <div class="experience-icon">
+            <img src="assets/project2.jpg" alt="Icone Développement Logiciel">
+          </div>
+          <div class="experience-content">
+            <h3>Stage en Développement Logiciel</h3>
+            <p>2020 - 2021</p>
+            <p>Développement de nouvelles fonctionnalités pour une application de gestion de projet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+
+    <!-- Section Mes projets -->
+    <section id="projects">
+      <h2>Mes projets</h2>
+      <div class="owl-carousel">
+        <!-- Projet 1 -->
+        <div class="item" data-description="Description complète du projet 1.">
+          <img src="assets/project1.jpg" alt="Projet 1">
+          <h3>Coupe de France de Robotique</h3>
+          <p>Développement de robots autonomes pour des compétitions internationales.</p>
+        </div>
+        <!-- Projet 2 -->
+        <div class="item" data-description="Description complète du projet 2.">
+          <img src="assets/project2.jpg" alt="Projet 2">
+          <h3>Station blanche embarquée</h3>
+          <p>Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
+        </div>
+        <!-- Projet 3 -->
+        <div class="item" data-description="Description complète du projet 3.">
+          <img src="assets/project1.jpg" alt="Projet 3">
+          <h3>Éolienne urbaine</h3>
+          <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
+        </div>
+        <!-- Projet 4 -->
+        <div class="item" data-description="Description complète du projet 4.">
+          <img src="assets/project2.jpg" alt="Projet 4">
+          <h3>Application de sécurité IoT</h3>
+          <p>Développement d'une application mobile pour sécuriser les objets connectés.</p>
+        </div>
+        <!-- Projet 5 -->
+        <div class="item" data-description="Description complète du projet 5.">
+          <img src="assets/project1.jpg" alt="Projet 5">
+          <h3>Système de reconnaissance d'images</h3>
+          <p>Implémentation d'un système de vision par ordinateur pour le suivi d'objets.</p>
+        </div>
+        <!-- Projet 6 -->
+        <div class="item" data-description="Description complète du projet 6.">
+          <img src="assets/project2.jpg" alt="Projet 6">
+          <h3>Application de sécurité IoT</h3>
+          <p>Développement d'une application mobile pour sécuriser les objets connectés.</p>
+        </div>
+      </div>
+      <!-- Indicateurs de pagination -->
+      <div class="carousel-indicators"></div>
+    </section>
+    <hr>
+
+    <!-- Section Me contacter -->
+    <section id="contact" class="contact-section">
+      <h2>Me contacter</h2>
+      <p>N'hésitez pas à me contacter via LinkedIn ou par email.</p>
+      <div class="contact-container">
+        <div class="contact-item">
+          <a href="https://www.linkedin.com/in/juliensaleh/" target="_blank">
+            <img src="assets/icon-linkedin.png" alt="LinkedIn">
+          </a>
+          <span><a href="https://www.linkedin.com/in/juliensaleh/" target="_blank">linkedin.com/in/juliensaleh/</a></span>
+        </div>
+        <div class="contact-item">
+          <a href="mailto:juliensaleh@hotmail.fr">
+            <img src="assets/icon-mail.png" alt="Email">
+          </a>
+          <span><a href="mailto:juliensaleh@hotmail.fr">juliensaleh@hotmail.fr</a></span>
+        </div>
+      </div>
+    </section>
+    <hr>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="script.js" defer></script>
+
+    <!-- Popup pour afficher les détails du projet -->
+  <div id="project-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <div class="popup-left">
+        <img src="" alt="Image du projet" id="popup-image">
+      </div>
+      <div class="popup-right">
+        <h3 id="popup-title">Titre du projet</h3>
+        <p id="popup-description">Description complète du projet.</p>
+      </div>
     </div>
-    <!-- Fin Barre de navigation personnalisée pour le défilement -->
-       
-    <main>
-        <div id="home-image">
-            <img src="assets/image/background.jpg" alt="Description of the image">
-        </div>
-        <section id="profile">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        <h2 style="font-size: 36px; margin-bottom: 20px;">Mon Profil</h2>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    <div class="col-md-4 text-center">
-                        <img src="assets\image\photoprofil.png" alt="Julien Saleh" style="width: 10%; height: auto; margin: 0 auto;">
-                        <div class="profile-box">
-                            <p><strong>Nom :</strong> Julien Saleh</p>
-                            <p><strong>Profession :</strong> Etudiant en Cybersécurité et IoT</p>
-                            <p><strong>Nationalité :</strong> Française</p>
-                            <p><strong>Email :</strong> juliensaleh@hotmail.fr</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <h5>Présentation</h5>
-                        <p>Bonjour ! Je m'appelle Julien et je suis étudiant en Cybersécurité et IoT.</p>
-                        <p>Je suis actuellement à la recherche d'un stage de fin d'études afin de devenir un Ingénieur en Cybersécurité.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- End Profile -->
-        
-        <!-- Section Accueil -->
-        <section id="home" class="accueil">
-            <div class="container-accueil">
-                <h2>Accueil</h2>
-                <p>Ceci est un texte d'introduction pour la nouvelle section.</p>
-            </div>
-        </section>
-        <!-- Fin Section Accueil -->
+  </div>
 
-        <!-- Section Présentation -->
-        <section id="about" class="presentation">
-            <div class="container-presentation">
-                <h2>Présentation</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-9">
-                        <!-- Image positioned to the right and before text content -->
-                        <img src="assets/image/photoprofil.png" alt="Julien Saleh" id="photopres" style="float: right; margin-left: 20px; max-height: 50vh; width: auto;">
-                        <p>Je m'appelle Julien et je poursuis actuellement des études d'ingénieur en Cybersécurité et IoT à l'ESILV, après avoir embrassé une filière scientifique qui a aiguisé mon appétit pour les défis techniques.</p>
-                        <p>Ma passion pour l'informatique m'a mené à intégrer l'ESILV en 2020, avec l'objectif de devenir ingénieur informatique. Au fil de ma formation, j'ai acquis des compétences approfondies, particulièrement dans le domaine des technologies émergentes. Sensibilisé très tôt aux enjeux cruciaux de la sécurité, j'ai choisi de spécialiser mon master dans les Objets Connectés et la Cybersécurité.</p>
-                        <p>Je suis à présent en quête d'un stage de fin d'études qui me permettra de concrétiser mon aspiration à devenir un Ingénieur en Cybersécurité, prêt à adresser les défis sécuritaires de notre ère numérique.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <h3>Compétences</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>C</li>
-                            <li>Java</li>
-                            <li>HTML/CSS</li>
-                            <li>JavaScript</li>
-                            <li>PHP</li>
-                            <li>SQL</li>
-                            <li>Linux</li>
-                            <li>Windows</li>
-                            <li>MacOS</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Fin Section Présentation -->
-
-
-        <!-- Section Projets -->
-        <section id="projects" class="projets">
-            <div class="container">
-                <h2>Mes projets</h2>
-                <div class="owl-carousel">
-                    <div class="item">
-                        <img src="assets/image/CDR.jpg" alt="Projet 1">
-                        <h4>Coupe de France de Robotique</h4>
-                        <p>Ceci est une description du projet 1.</p>
-                    </div>
-                    <div class="item">
-                        <img src="assets\image\Station_Blanche.jpg" alt="Projet 2">
-                        <h4>Station blanche embarquée</h4>
-                        <p>Ceci est une description du projet 1.</p>
-                    </div>
-                    <div class="item">
-                        <img src="assets\image\eolienne.jpg" alt="Projet 3">
-                        <h4>L'éolienne urbaine</h4>
-                        <p>Ceci est une description du projet 1.</p>
-                    </div>
-                    <div class="item">
-                        <img src="assets/image/CDR.jpg" alt="Projet 1">
-                        <h4>Coupe de France de Robotique</h4>
-                        <p>Ceci est une description du projet 1.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Fin Section Projets -->
-
-
-        <!-- Section Parcours -->
-        <section id="parcours" class="timeline">
-            <div class="timeline">
-                <ul>
-                  <li class="timeline-item">
-                    <div class="timeline-content left">
-                      <p class="date">2021</p>
-                      <h3 class="title">Titre du Poste 1</h3>
-                      <p>Description du rôle et des responsabilités...</p>
-                    </div>
-                    <div class="timeline-img"><img src="assets\icons\moon.png" alt="Logo Entreprise 1"></div>
-                  </li>
-                  <li class="timeline-item">
-                    <div class="timeline-img"><img src="assets\icons\sun.png" alt="Logo Entreprise 2"></div>
-                    <div class="timeline-content right">
-                      <p class="date">2022</p>
-                      <h3 class="title">Titre du Poste 2</h3>
-                      <p>Description du rôle et des responsabilités...</p>
-                    </div>
-                  </li>
-                  <li class="timeline-item">
-                    <div class="timeline-content left">
-                      <p class="date">2021</p>
-                      <h3 class="title">Titre du Poste 3</h3>
-                      <p>Description du rôle et des responsabilités...</p>
-                    </div>
-                    <div class="timeline-img"><img src="assets\icons\moon.png" alt="Logo Entreprise 3"></div>
-                  </li>
-                  <li class="timeline-item">
-                    <div class="timeline-img"><img src="assets\icons\sun.png" alt="Logo Entreprise 4"></div>
-                    <div class="timeline-content right">
-                      <p class="date">2022</p>
-                      <h3 class="title">Titre du Poste 4</h3>
-                      <p>Description du rôle et des responsabilités...</p>
-                    </div>
-                  </li>
-                  <!-- Répéter pour chaque expérience -->
-                </ul>
-              </div>              
-        </section>
-        <!-- Fin Section Parcours -->
-
-        <!-- Section Contact -->
-        <section id="contact" class="contact">
-            <div class="container-contact">
-                <h2>Me contacter</h2>
-                <p>Ceci est un texte d'introduction pour la nouvelle section.</p>
-            </div>
-        </section>
-        <!-- Fin Section Contact -->
-
-    </main>
-
-    <!-- Section Pied de page -->
-    <footer>
-        <p>© 2024 Julien SALEH. Tous droits réservés.</p>
-    </footer>
-    <!-- Fin Section Pied de page -->
-
-    <!-- Section boutons d'état -->
-    <script>
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('language-toggle').addEventListener('click', toggleLanguage);
-    </script>
-    <!-- Fin Section boutons d'état -->
-    <!-- Fenêtre modale pour les détails du projet -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="assets/image/placeholder.jpg" alt="Projet Image">
-            <div id="modalText" class="modal-text">
-                <h4>Titre du projet</h4>
-                <p>Description détaillée du projet ici.</p>
-            </div>
-        </div>
-    </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImage" src="assets/image/placeholder.jpg" alt="Projet Image">
-            <div id="modalText" class="modal-text">
-                <h4>Titre du projet</h4>
-                <p>Description détaillée du projet ici.</p>
-            </div>
-        </div>
-    </div>
-    <!-- Fin Fenêtre modale pour les détails du projet -->
 </body>
 </html>
