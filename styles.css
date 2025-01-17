@@ -303,8 +303,8 @@ form button:hover {
   top: 50%; /* Centre verticalement par rapport à l'item */
   left: 50%; /* Centre horizontalement */
   transform: translate(-50%, -50%);
-  width: 70px; /* Hauteur fixe des icônes */
-  height: 70px;
+  width: 110px; /* Hauteur fixe des icônes */
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
