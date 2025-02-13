@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio</title>
+  <title data-translate="title">Mon Portfolio</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <!-- Google Fonts pour une typographie moderne -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- Feuilles de style -->
   <link rel="stylesheet" href="styles.css">
   <!-- Font Awesome CSS pour les icônes -->
@@ -13,23 +15,35 @@
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <!-- AOS CSS pour les animations scroll -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
 <body>
   <!-- En-tête avec navigation -->
   <header>
-    <nav>
+    <nav aria-label="Navigation principale" data-aos="fade-down">
       <ul class="nav-links">
-        <li><a href="#about" class="scroll-link">Qui suis-je ?</a></li>
-        <li><a href="#experience" class="scroll-link">Mes expériences</a></li>
-        <li><a href="#projects" class="scroll-link">Mes projets</a></li>
-        <li><a href="#skills" class="scroll-link">Mes compétences</a></li>
-        <li><a href="#contact" class="scroll-link">Me contacter</a></li>
+        <li>
+          <a href="#about" class="scroll-link" data-translate="about">Qui suis-je ?</a>
+        </li>
+        <li>
+          <a href="#experience" class="scroll-link" data-translate="experience">Mes expériences</a>
+        </li>
+        <li>
+          <a href="#projects" class="scroll-link" data-translate="projects">Mes projets</a>
+        </li>
+        <li>
+          <a href="#skills" class="scroll-link" data-translate="skills">Mes compétences</a>
+        </li>
+        <li>
+          <a href="#contact" class="scroll-link" data-translate="contact">Me contacter</a>
+        </li>
       </ul>
       <div class="nav-buttons">
         <!-- Bouton pour télécharger le CV -->
         <a id="cv-download" href="CV_Julien_SALEH_FR.pdf" target="_blank" class="cv-button">
           <img src="assets/icon-cv.png" alt="Télécharger le CV">
-          <span>CV FR</span>
+          <span data-translate="cvText">CV FR</span>
         </a>
         <!-- Bouton pour changer la langue -->
         <button id="language-toggle" aria-label="Changer la langue">
@@ -40,93 +54,95 @@
   </header>
 
   <!-- Bouton pour changer le thème -->
-  <button id="theme-toggle" aria-label="Changer le thème">
+  <button id="theme-toggle" aria-label="Changer le thème" data-aos="fade-up">
     <img src="assets/icon-moon.png" alt="Changer de thème">
   </button>
 
   <main>
     <!-- Section Qui suis-je ? -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section" data-aos="fade-up">
       <div class="about-container">
         <div class="about-image">
           <img src="assets/picture-perso.jpg" alt="Photo de Julien Saleh">
         </div>
         <div class="about-text">
-          <h2>Qui suis-je ?</h2>
-          <p>Passionné par la technologie et l'innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l'affût des dernières avancées technologiques, je m'efforce de créer des solutions sécurisées et innovantes. N'hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l'informatique.</p>
+          <h2 data-translate="about">Qui suis-je ?</h2>
+          <p data-translate="aboutText">
+            Passionné par la technologie et l'innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l'affût des dernières avancées technologiques, je m'efforce de créer des solutions sécurisées et innovantes. N'hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l'informatique.
+          </p>
         </div>
       </div>
     </section>
     <hr>
 
     <!-- Section Mes expériences -->
-    <section id="experience">
-      <h2>Mes expériences</h2>
+    <section id="experience" data-aos="fade-up">
+      <h2 data-translate="experience">Mes expériences</h2>
       <div class="experience-timeline">
         <!-- Expérience 1 -->
-        <div class="experience-item">
+        <div class="experience-item" data-aos="fade-right">
           <div class="experience-icon">
-            <img src="assets\ESILV.png" alt="Icône Cybersécurité">
+            <img src="assets/ESILV.png" alt="Icône Cybersécurité">
           </div>
           <div class="experience-content">
-            <h3>ESILV - Ingénieur numérique</h3>
-            <p>2020 -  2025</p>
-            <p>Etudiant à l'ESILV en master Objects Connectés et Cybersécurité</p>
+            <h3 data-translate="experienceItem1Title">ESILV - Ingénieur numérique</h3>
+            <p data-translate="experienceItem1Period">2020 - 2025</p>
+            <p data-translate="experienceItem1Desc">Étudiant à l'ESILV en master Objects Connectés et Cybersécurité</p>
           </div>
         </div>
         <!-- Expérience 2 -->
-        <div class="experience-item">
+        <div class="experience-item" data-aos="fade-left">
           <div class="experience-icon">
-            <img src="assets\Accor.png" alt="Icône IoT">
+            <img src="assets/Accor.png" alt="Icône IoT">
           </div>
           <div class="experience-content">
-            <h3>Stage chez Accor - 4 mois</h3>
-            <p>2024</p>
-            <p>Participation à des pentests.</p>
+            <h3 data-translate="experienceItem2Title">Stage chez Accor - 4 mois</h3>
+            <p data-translate="experienceItem2Period">2024</p>
+            <p data-translate="experienceItem2Desc">Participation à des pentests.</p>
           </div>
         </div>
         <!-- Expérience 3 -->
-        <div class="experience-item">
+        <div class="experience-item" data-aos="fade-right">
           <div class="experience-icon">
-            <img src="assets\nely.png" alt="Icône Développement Logiciel">
+            <img src="assets/nely.png" alt="Icône Développement Logiciel">
           </div>
           <div class="experience-content">
-            <h3>Nely - Stagiaire IT</h3>
-            <p>2023</p>
-            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
+            <h3 data-translate="experienceItem3Title">Nely - Stagiaire IT</h3>
+            <p data-translate="experienceItem3Period">2023</p>
+            <p data-translate="experienceItem3Desc">Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
           </div>
         </div>
         <!-- Expérience 4 -->
-        <div class="experience-item">
+        <div class="experience-item" data-aos="fade-left">
           <div class="experience-icon">
-            <img src="assets\RTU.png" alt="Icône IoT">
+            <img src="assets/RTU.png" alt="Icône IoT">
           </div>
           <div class="experience-content">
-            <h3>Riga Technical University - Semestre d'échange</h3>
-            <p>2022</p>
-            <p>Echange international en Lettonie.</p>
+            <h3 data-translate="experienceItem4Title">Riga Technical University - Semestre d'échange</h3>
+            <p data-translate="experienceItem4Period">2022</p>
+            <p data-translate="experienceItem4Desc">Échange international en Lettonie.</p>
           </div>
         </div>
         <!-- Expérience 5 -->
-        <div class="experience-item">
+        <div class="experience-item" data-aos="fade-right">
           <div class="experience-icon">
-            <img src="assets\SH.png" alt="Icône Cybersécurité">
+            <img src="assets/SH.png" alt="Icône Cybersécurité">
           </div>
           <div class="experience-content">
-            <h3>Safe Handling - Stagiaire IT</h3>
-            <p>2022</p>
-            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
+            <h3 data-translate="experienceItem5Title">Safe Handling - Stagiaire IT</h3>
+            <p data-translate="experienceItem5Period">2022</p>
+            <p data-translate="experienceItem5Desc">Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
           </div>
         </div>
         <!-- Expérience 6 -->
-        <div class="experience-item">
+        <div class="experience-item" data-aos="fade-left">
           <div class="experience-icon">
-            <img src="assets\NDO.png" alt="Icône IoT">
+            <img src="assets/NDO.png" alt="Icône IoT">
           </div>
           <div class="experience-content">
-            <h3>Collège Lycée Notre-Dame des Oiseaux</h3>
-            <p>2017 - 2020</p>
-            <p>Baccalauréat scientifique spécialité mathématiques - mention bien</p>
+            <h3 data-translate="experienceItem6Title">Collège Lycée Notre-Dame des Oiseaux</h3>
+            <p data-translate="experienceItem6Period">2017 - 2020</p>
+            <p data-translate="experienceItem6Desc">Baccalauréat scientifique spécialité mathématiques - mention bien</p>
           </div>
         </div>
       </div>
@@ -134,149 +150,163 @@
     <hr>
 
     <!-- Section Mes projets -->
-    <section id="projects">
-      <h2>Mes projets</h2>
+    <section id="projects" data-aos="fade-up">
+      <h2 data-translate="projects">Mes projets</h2>
       <div class="owl-carousel">
         <!-- Projet 1 -->
-        <div class="item" data-description="Description complète du projet 1.">
+        <div class="item" data-description="Description complète du projet 1." data-aos="zoom-in">
           <img src="assets/project1.jpg" alt="Projet 1">
-          <h3>Coupe de France de Robotique</h3>
-          <p>Développement de robots autonomes pour des compétitions internationales.</p>
+          <h3 data-translate="project1Title">Coupe de France de Robotique</h3>
+          <p data-translate="project1Desc">Développement de robots autonomes pour des compétitions internationales.</p>
         </div>
         <!-- Projet 2 -->
-        <div class="item" data-description="Description complète du projet 2.">
+        <div class="item" data-description="Description complète du projet 2." data-aos="zoom-in">
           <img src="assets/project2.jpg" alt="Projet 2">
-          <h3>Station blanche embarquée</h3>
-          <p>Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
+          <h3 data-translate="project2Title">Station blanche embarquée</h3>
+          <p data-translate="project2Desc">Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
         </div>
         <!-- Projet 3 -->
-        <div class="item" data-description="Description complète du projet 3.">
+        <div class="item" data-description="Description complète du projet 3." data-aos="zoom-in">
           <img src="assets/project3.jpg" alt="Projet 3">
-          <h3>Éolienne urbaine</h3>
-          <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
+          <h3 data-translate="project3Title">Éolienne urbaine</h3>
+          <p data-translate="project3Desc">Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
         </div>
-        <!-- Projet 4 -->
-        <div class="item" data-description="Description complète du projet 1.">
+        <!-- Répétition pour le carrousel (Projet 1) -->
+        <div class="item" data-description="Description complète du projet 1." data-aos="zoom-in">
           <img src="assets/project1.jpg" alt="Projet 1">
-          <h3>Coupe de France de Robotique</h3>
-          <p>Développement de robots autonomes pour des compétitions internationales.</p>
+          <h3 data-translate="project1Title">Coupe de France de Robotique</h3>
+          <p data-translate="project1Desc">Développement de robots autonomes pour des compétitions internationales.</p>
         </div>
-        <!-- Projet 5 -->
-        <div class="item" data-description="Description complète du projet 2.">
+        <!-- Répétition pour le carrousel (Projet 2) -->
+        <div class="item" data-description="Description complète du projet 2." data-aos="zoom-in">
           <img src="assets/project2.jpg" alt="Projet 2">
-          <h3>Station blanche embarquée</h3>
-          <p>Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
+          <h3 data-translate="project2Title">Station blanche embarquée</h3>
+          <p data-translate="project2Desc">Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
         </div>
-        <!-- Projet 6 -->
-        <div class="item" data-description="Description complète du projet 3.">
+        <!-- Répétition pour le carrousel (Projet 3) -->
+        <div class="item" data-description="Description complète du projet 3." data-aos="zoom-in">
           <img src="assets/project3.jpg" alt="Projet 3">
-          <h3>Éolienne urbaine</h3>
-          <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
+          <h3 data-translate="project3Title">Éolienne urbaine</h3>
+          <p data-translate="project3Desc">Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
         </div>
       </div>
       <!-- Indicateurs de pagination -->
       <div class="carousel-indicators"></div>
     </section>
     <hr>
+    
+    <!-- Popup pour afficher les détails du projet -->
+    <div id="project-popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <div class="popup-left">
+          <img src="" alt="Image du projet" id="popup-image">
+        </div>
+        <div class="popup-right">
+          <h3 id="popup-title" data-translate="popupTitle">Titre du projet</h3>
+          <p id="popup-description" data-translate="popupDesc">Description complète du projet.</p>
+        </div>
+      </div>
+    </div>
 
-      <!-- Section Mes compétences -->
-      <section id="skills" class="skills-section">
-      <h2>Mes compétences</h2>
+    <!-- Section Mes compétences -->
+    <section id="skills" class="skills-section" data-aos="fade-up">
+      <h2 data-translate="skills">Mes compétences</h2>
       <div class="skills-grid">
         <!-- Compétence 1 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-code"></i>
           </div>
-          <h3>Développement</h3>
+          <h3 data-translate="skillDevTitle">Développement</h3>
           <ul>
-            <li><strong>Langages :</strong> C#, C, C++, Python, JavaScript, TypeScript, HTML, CSS, LaTeX</li>
-            <li><strong>Technologies :</strong> JSON, XML, Git</li>
+            <li data-translate="skillDevLanguages"><strong>Langages :</strong> C#, C, C++, Python, JavaScript, TypeScript, HTML, CSS, LaTeX</li>
+            <li data-translate="skillDevTech"><strong>Technologies :</strong> JSON, XML, Git</li>
           </ul>
         </div>
         <!-- Compétence 2 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-network-wired"></i>
           </div>
-          <h3>Réseau & Systèmes</h3>
+          <h3 data-translate="skillNetTitle">Réseau &amp; Systèmes</h3>
           <ul>
-            <li><strong>Outils :</strong> Wireshark, Cisco Packet Tracer, VirtualBox, Docker</li>
-            <li><strong>Systèmes :</strong> Linux (Kali, Ubuntu), Windows, MacOS</li>
+            <li data-translate="skillNetTools"><strong>Outils :</strong> Wireshark, Cisco Packet Tracer, VirtualBox, Docker</li>
+            <li data-translate="skillNetSystems"><strong>Systèmes :</strong> Linux (Kali, Ubuntu), Windows, MacOS</li>
           </ul>
         </div>
         <!-- Compétence 3 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-shield-alt"></i>
           </div>
-          <h3>Cybersécurité</h3>
+          <h3 data-translate="skillCyberTitle">Cybersécurité</h3>
           <ul>
-            <li><strong>Concepts :</strong> OWASP Top 10, Cryptographie, Sécurité réseau</li>
-            <li><strong>Outils :</strong> Burp Suite, Reverse Engineering</li>
+            <li data-translate="skillCyberConcepts"><strong>Concepts :</strong> OWASP Top 10, Cryptographie, Sécurité réseau</li>
+            <li data-translate="skillCyberTools"><strong>Outils :</strong> Burp Suite, Reverse Engineering</li>
           </ul>
         </div>
         <!-- Compétence 4 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-database"></i>
           </div>
-          <h3>Bases de Données</h3>
+          <h3 data-translate="skillDBTitle">Bases de Données</h3>
           <ul>
-            <li><strong>SGBD :</strong> MySQL, Oracle</li>
-            <li><strong>Modélisation :</strong> Conception de bases de données</li>
+            <li data-translate="skillDBSystems"><strong>SGBD :</strong> MySQL, Oracle</li>
+            <li data-translate="skillDBModeling"><strong>Modélisation :</strong> Conception de bases de données</li>
           </ul>
         </div>
         <!-- Compétence 5 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-users-cog"></i>
           </div>
-          <h3>Soft Skills</h3>
+          <h3 data-translate="skillSoftTitle">Soft Skills</h3>
           <ul>
-            <li>Leadership et gestion d'équipe</li>
-            <li>Travail en équipe</li>
-            <li>Design Thinking</li>
-            <li>Méthodologies Agiles (Scrum)</li>
+            <li data-translate="skillSoft1">Leadership et gestion d'équipe</li>
+            <li data-translate="skillSoft2">Travail en équipe</li>
+            <li data-translate="skillSoft3">Design Thinking</li>
+            <li data-translate="skillSoft4">Méthodologies Agiles (Scrum)</li>
           </ul>
         </div>
         <!-- Compétence 6 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-certificate"></i>
           </div>
-          <h3>Certifications</h3>
+          <h3 data-translate="skillCertTitle">Certifications</h3>
           <ul>
-            <li>TOEIC : 900/990</li>
-            <li>Certification Agile Scrum</li>
-            <li>Diplôme de Design Thinking</li>
+            <li data-translate="skillCert1">TOEIC : 900/990</li>
+            <li data-translate="skillCert2">Certification Agile Scrum</li>
+            <li data-translate="skillCert3">Diplôme de Design Thinking</li>
           </ul>
         </div>
         <!-- Compétence 7 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-language"></i>
           </div>
-          <h3>Langues</h3>
+          <h3 data-translate="skillLangTitle">Langues</h3>
           <ul>
-            <li>Français : Langue maternelle</li>
-            <li>Anglais : Niveau B2</li>
-            <li>Espagnol : Notions</li>
-            <li>Arabe : Notions</li>
+            <li data-translate="skillLang1">Français : Langue maternelle</li>
+            <li data-translate="skillLang2">Anglais : Niveau B2</li>
+            <li data-translate="skillLang3">Espagnol : Notions</li>
+            <li data-translate="skillLang4">Arabe : Notions</li>
           </ul>
         </div>
         <!-- Compétence 8 -->
-        <div class="skill-card">
+        <div class="skill-card" data-aos="flip-left">
           <div class="skill-icon">
             <i class="fas fa-heart"></i>
           </div>
-          <h3>Centres d'intérêts</h3>
+          <h3 data-translate="skillInterestsTitle">Centres d'intérêts</h3>
           <ul>
-            <li>Tennis (17 ans)</li>
-            <li>Escalade</li>
-            <li>Voyages</li>
-            <li>Robotique & Modélisation 3D</li>
-            <li>Cuisine</li>
+            <li data-translate="skillInterests1">Tennis (17 ans)</li>
+            <li data-translate="skillInterests2">Escalade</li>
+            <li data-translate="skillInterests3">Voyages</li>
+            <li data-translate="skillInterests4">Robotique &amp; Modélisation 3D</li>
+            <li data-translate="skillInterests5">Cuisine</li>
           </ul>
         </div>
       </div>
@@ -284,39 +314,37 @@
     <hr>
 
     <!-- Section Me contacter -->
-    <section id="contact" class="contact-section">
-      <h2>Me contacter</h2>
-      <p>N'hésitez pas à échanger avec moi, je serai ravi de discuter de nouvelles opportunités ou simplement de partager autour de sujets qui nous passionnent.</p>
+    <section id="contact" class="contact-section" data-aos="fade-up">
+      <h2 data-translate="contact">Me contacter</h2>
+      <p data-translate="contactText">
+        N'hésitez pas à échanger avec moi, je serai ravi de discuter de nouvelles opportunités ou simplement de partager autour de sujets qui nous passionnent.
+      </p>
       <div class="contact-cards">
-        <!-- Carte LinkedIn -->
-        <div class="contact-card">
+        <div class="contact-card" data-aos="fade-right">
           <a href="https://www.linkedin.com/in/juliensaleh/" target="_blank">
             <i class="fab fa-linkedin contact-icon"></i>
-            <h3>LinkedIn</h3>
+            <h3 data-translate="contactLinkedin">LinkedIn</h3>
             <p>linkedin.com/in/juliensaleh/</p>
           </a>
         </div>
-        <!-- Carte Email -->
-        <div class="contact-card">
+        <div class="contact-card" data-aos="fade-left">
           <a href="mailto:juliensaleh@hotmail.fr">
             <i class="fas fa-envelope contact-icon"></i>
-            <h3>Email</h3>
+            <h3 data-translate="contactEmail">Email</h3>
             <p>juliensaleh@hotmail.fr</p>
           </a>
         </div>
-        <!-- Carte GitHub -->
-        <div class="contact-card">
+        <div class="contact-card" data-aos="fade-right">
           <a href="https://github.com/Djuju02" target="_blank">
             <i class="fab fa-github contact-icon"></i>
-            <h3>GitHub</h3>
+            <h3 data-translate="contactGitHub">GitHub</h3>
             <p>github.com/Djuju02</p>
           </a>
         </div>
-        <!-- Carte Root Me -->
-        <div class="contact-card">
+        <div class="contact-card" data-aos="fade-left">
           <a id="rootme-link" href="https://www.root-me.org/Djuju02?lang=fr" target="_blank">
             <i class="fas fa-user-secret contact-icon"></i>
-            <h3>Root Me</h3>
+            <h3 data-translate="contactRootMe">Root Me</h3>
             <p>root-me.org/Djuju02</p>
           </a>
         </div>
@@ -326,19 +354,19 @@
   </main>
 
   <!-- Pied de page -->
-  <footer>
+  <footer data-aos="fade-up">
     <div class="footer-content">
-      <p>&copy; 2024 Julien Saleh. Tous droits réservés.</p>
+      <p data-translate="footerText">&copy; 2024 Julien Saleh. Tous droits réservés.</p>
     </div>
   </footer>
 
   <!-- Scripts JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Owl Carousel JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- Votre Script -->
+  <!-- AOS JS pour les animations scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="script.js" defer></script>
-
+  
   <!-- Popup pour afficher les détails du projet -->
   <div id="project-popup" class="popup">
     <div class="popup-content">
@@ -347,11 +375,10 @@
         <img src="" alt="Image du projet" id="popup-image">
       </div>
       <div class="popup-right">
-        <h3 id="popup-title">Titre du projet</h3>
-        <p id="popup-description">Description complète du projet.</p>
+        <h3 id="popup-title" data-translate="popupTitle">Titre du projet</h3>
+        <p id="popup-description" data-translate="popupDesc">Description complète du projet.</p>
       </div>
     </div>
   </div>
-
 </body>
 </html>
