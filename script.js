@@ -1,41 +1,4 @@
-// GESTION DU MODE SOMBRE/CLAIR
-const themeToggle = document.getElementById('theme-toggle');
-const themeToggleIcon = themeToggle?.querySelector('img');
-const body = document.body;
-
-function updateThemeIcon(isLightMode) {
-  if (themeToggleIcon) {
-    themeToggleIcon.src = isLightMode ? 'assets/icon-moon.png' : 'assets/icon-sun.png';
-  }
-}
-
-function initializeTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    body.classList.add(savedTheme);
-    updateThemeIcon(savedTheme === 'light-mode');
-  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    body.classList.add('dark-mode');
-    updateThemeIcon(false);
-  } else {
-    body.classList.add('light-mode');
-    updateThemeIcon(true);
-  }
-}
-
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const isLightMode = body.classList.contains('light-mode');
-    body.classList.toggle('light-mode', !isLightMode);
-    body.classList.toggle('dark-mode', isLightMode);
-    updateThemeIcon(!isLightMode);
-    localStorage.setItem('theme', isLightMode ? 'dark-mode' : 'light-mode');
-  });
-}
-
-initializeTheme();
-
-// TRANSLATIONS COMPLETES
+// TRANSLATIONS
 const translations = {
   fr: {
     title: "Mon Portfolio",
@@ -188,30 +151,60 @@ const translations = {
     footerText: "&copy; 2024 Julien Saleh. All rights reserved."
   }
 };
+// GESTION DU MODE SOMBRE/CLAIR
+const themeToggle = document.getElementById('theme-toggle');
+const themeToggleIcon = themeToggle ? themeToggle.querySelector('img') : null;
+const body = document.body;
+
+function updateThemeIcon(isLightMode) {
+  if (themeToggleIcon) {
+    themeToggleIcon.src = isLightMode ? 'assets/icon-moon.png' : 'assets/icon-sun.png';
+  }
+}
+
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    body.classList.add(savedTheme);
+    updateThemeIcon(savedTheme === 'light-mode');
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    body.classList.add('dark-mode');
+    updateThemeIcon(false);
+  } else {
+    body.classList.add('light-mode');
+    updateThemeIcon(true);
+  }
+}
+
+function toggleTheme() {
+  const isLightMode = body.classList.contains('light-mode');
+  body.classList.toggle('light-mode', !isLightMode);
+  body.classList.toggle('dark-mode', isLightMode);
+  updateThemeIcon(!isLightMode);
+  localStorage.setItem('theme', isLightMode ? 'dark-mode' : 'light-mode');
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme);
+}
+initializeTheme();
 
 // GESTION DE LA LANGUE
 const languageToggle = document.getElementById('language-toggle');
-const cvDownload = document.getElementById('cv-download');
-const rootmeLink = document.getElementById('rootme-link');
-
 function changeLanguage(lang) {
-  // Mise à jour de tous les éléments ayant l'attribut data-translate
   document.querySelectorAll('[data-translate]').forEach(el => {
     const key = el.getAttribute('data-translate');
     if (translations[lang] && translations[lang][key]) {
       el.textContent = translations[lang][key];
     }
   });
-  
-  // Mise à jour spécifique du lien CV et Root Me
-  if (cvDownload) {
-    cvDownload.setAttribute('href', translations[lang]['cvFile']);
+  if (languageToggle) {
+    languageToggle.setAttribute('data-lang', lang);
+    if (languageToggle.querySelector('img')) {
+      languageToggle.querySelector('img').src = `assets/icon-${lang}.png`;
+    }
   }
-  if (rootmeLink) {
-    rootmeLink.setAttribute('href', translations[lang]['rootMeLink']);
-  }
-  
-  // Mise à jour du copyright avec l'année courante
+  // Mise à jour du copyright
   const currentYear = new Date().getFullYear();
   let footerMessage = "";
   if(lang === "fr") {
@@ -229,10 +222,6 @@ if (languageToggle) {
   languageToggle.addEventListener('click', () => {
     const currentLang = languageToggle.getAttribute('data-lang') || 'fr';
     const newLang = currentLang === 'fr' ? 'en' : 'fr';
-    languageToggle.setAttribute('data-lang', newLang);
-    if (languageToggle.querySelector('img')) {
-      languageToggle.querySelector('img').src = `assets/icon-${newLang}.png`;
-    }
     changeLanguage(newLang);
   });
   languageToggle.setAttribute('data-lang', 'fr');
@@ -242,7 +231,19 @@ if (languageToggle) {
   changeLanguage('fr');
 }
 
-// INITIALISATION DU CARROUSEL AVEC OWL CAROUSEL
+// Boutons mobiles pour la langue et le thème
+const mobileLangToggle = document.getElementById("mobile-lang-toggle");
+if (mobileLangToggle) {
+  mobileLangToggle.addEventListener("click", () => {
+    if (languageToggle) languageToggle.click();
+  });
+}
+const mobileDarkToggle = document.getElementById("mobile-dark-toggle");
+if (mobileDarkToggle) {
+  mobileDarkToggle.addEventListener("click", toggleTheme);
+}
+
+// INITIALISATION DU CAROUSEL AVEC OWL CAROUSEL
 $(document).ready(function () {
   const $carousel = $(".owl-carousel");
   const $indicators = $(".carousel-indicators");
@@ -251,7 +252,6 @@ $(document).ready(function () {
     loop: true,
     margin: 10,
     nav: true,
-    // Utilisation d'icônes FontAwesome pour des boutons ronds et modernes
     navText: [
       "<div class='custom-nav left-nav'><i class='fas fa-chevron-left'></i></div>",
       "<div class='custom-nav right-nav'><i class='fas fa-chevron-right'></i></div>"
@@ -260,9 +260,9 @@ $(document).ready(function () {
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
     responsive: {
-      0: { items: 1 },
-      600: { items: 2 },
-      1000: { items: 3 }
+      0: { items: 1 },     // mobile
+      768: { items: 2 },   // tablette
+      1200: { items: 3 }   // desktop
     },
     onInitialized: createIndicators,
     onChanged: updateIndicators
@@ -299,10 +299,12 @@ document.querySelectorAll('nav a.scroll-link').forEach(link => {
     event.preventDefault();
     const targetId = link.getAttribute('href').slice(1);
     const targetSection = document.getElementById(targetId);
-    targetSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   });
 });
 
@@ -339,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // INITIALISATION DE AOS POUR LES ANIMATIONS SCROLL
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 800,

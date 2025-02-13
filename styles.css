@@ -1,4 +1,4 @@
-:root {
+:root { 
   /* Couleurs principales */
   --color-primary: #0d6efd;
   --color-primary-dark: #084298;
@@ -9,13 +9,25 @@
   --color-border: #ddd;
   --color-hover: #f1f1f1;
 
-  /* Tailles */
+  /* Tailles et espacements */
   --font-size-base: 16px;
   --font-size-large: 1.5em;
   --font-size-small: 0.875em;
   --spacing: 20px;
   --spacing-smaller: 10px;
   --border-radius: 10px;
+
+  /* Variables pour la timeline d'expériences */
+  --timeline-padding: 10px;
+  --timeline-line-width: 4px;
+  --timeline-vertical-offset: 100px;
+  
+  /* Icônes d'expériences */
+  --experience-icon-size-desktop: 110px;
+  --experience-icon-size-mobile: 60px;
+  --experience-icon-border: 3px;
+  --experience-icon-center-desktop: calc((var(--experience-icon-size-desktop) + (2 * var(--experience-icon-border))) / 2);
+  --experience-icon-center-mobile: calc((var(--experience-icon-size-mobile) + (2 * var(--experience-icon-border))) / 2);
 }
 
 /* ==================== Global ==================== */
@@ -40,7 +52,7 @@ body.dark-mode {
   background-color: var(--color-bg-dark);
 }
 
-/* ==================== Navigation ==================== */
+/* ==================== Navigation Desktop ==================== */
 nav {
   position: fixed;
   top: 0;
@@ -89,38 +101,168 @@ nav {
   margin-left: var(--spacing);
 }
 
-@media (max-width: 600px) {
+/* Masquer la nav desktop en mobile */
+@media (max-width: 768px) {
   nav {
-    padding: 0 var(--spacing-smaller);
-  }
-  .nav-links li {
-    margin: 0 var(--spacing-smaller);
-  }
-  .nav-links a {
-    font-size: 14px;
-  }
-  body {
-    font-size: 14px;
+    display: none !important;
   }
 }
 
-/* ==================== Boutons ==================== */
-/* Bouton téléchargement CV */
-#cv-download {
+/* ==================== Bouton thème pour desktop ==================== */
+#theme-toggle {
+  position: fixed;
+  bottom: var(--spacing);
+  right: var(--spacing);
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-bg-light);
+  border-radius: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+body.dark-mode #theme-toggle {
+  background-color: #333;
+}
+
+#theme-toggle img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Masquer le bouton thème sur mobile */
+@media (max-width: 768px) {
+  #theme-toggle {
+    display: none !important;
+  }
+}
+
+/* ==================== Menu Mobile Sidebar ==================== */
+#mobile-sidebar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Bouton hamburger */
+  #mobile-menu-toggle {
+    display: flex;
+    position: fixed;
+    top: var(--spacing-smaller);
+    left: var(--spacing-smaller);
+    width: 40px;
+    height: 40px;
+    background-color: #183350;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+    cursor: pointer;
+  }
+  
+  /* Sidebar mobile moderne et compacte */
+  #mobile-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 175px;
+    height: 100%;
+    background: linear-gradient(135deg, #183350, #021a31);
+    z-index: 11000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: var(--spacing);
+    padding-top: calc(var(--spacing) + 40px);
+  }
+  #mobile-sidebar.active {
+    transform: translateX(0);
+  }
+  #mobile-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #mobile-sidebar ul li {
+    margin-bottom: var(--spacing);
+  }
+  #mobile-sidebar ul li a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+  }
+  /* Barre de retour dans la sidebar */
+  .sidebar-header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 91%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--spacing-smaller);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .sidebar-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.4em;
+    line-height: 1;
+    cursor: pointer;
+  }
+  /* Bouton CV dans la sidebar */
+  .cv-mobile {
+    margin-top: var(--spacing);
+    text-align: center;
+  }
+  .cv-mobile a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #183350;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .cv-mobile a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+  .cv-mobile a:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+}
+
+/* ==================== Boutons (CV, langue) ==================== */
+#cv-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #fff;
   font-size: var(--font-size-base);
   background-color: #183350;
-  padding: 7px 10px;
+  padding: 10px 14px;
   border-radius: var(--border-radius);
   transition: background-color 0.3s ease, transform 0.2s ease;
+  flex-shrink: 0;
 }
 
 #cv-download img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   margin-right: 8px;
 }
 
@@ -137,14 +279,10 @@ nav {
   transform: translateY(0);
 }
 
-/* Bouton changement de langue */
 #language-toggle {
   width: 50px;
   height: 50px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: none;
   border: none;
 }
@@ -155,30 +293,43 @@ nav {
   display: block;
 }
 
-/* Bouton mode sombre/clair toujours au premier plan */
-#theme-toggle {
-  position: fixed;
-  bottom: var(--spacing);
-  right: var(--spacing);
-  width: 50px;
-  height: 50px;
-  background-color: var(--color-bg-light);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  z-index: 9999;
+/* ==================== Boutons fixes pour mobile ==================== */
+#mobile-toggles {
+  display: none;
 }
 
-body.dark-mode #theme-toggle {
-  background-color: #333;
-}
-
-#theme-toggle img {
-  width: 24px;
-  height: 24px;
+@media (max-width: 768px) {
+  #mobile-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    right: var(--spacing);
+    bottom: var(--spacing);
+    z-index: 11000;
+  }
+  #mobile-toggles button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  body.dark-mode #mobile-toggles button {
+    background-color: #444;
+  }
+  #mobile-toggles button img {
+    width: 24px;
+    height: 24px;
+  }
+  #mobile-dark-toggle {
+    margin-bottom: 10px;
+  }
 }
 
 /* ==================== Sections ==================== */
@@ -249,13 +400,39 @@ form button:hover {
 }
 
 /* ==================== Carrousel et indicateurs ==================== */
-.owl-carousel .item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Forcer l'affichage en ligne via Owl Carousel */
+.owl-carousel .owl-stage {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-.owl-carousel .item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.owl-carousel .owl-item {
+  flex: 0 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* Exemple : largeur forcée */
+  width: calc((100% - (3 * var(--spacing))) / 4);
+}
+
+@media (max-width: 1200px) {
+  .owl-carousel .owl-item {
+    width: calc((100% - (2 * var(--spacing))) / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .owl-carousel .owl-item {
+    width: 100%;
+  }
+}
+
+
+.owl-carousel .item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
 }
 
 .custom-nav {
@@ -323,12 +500,13 @@ body.dark-mode .carousel-indicators .indicator.active {
   align-items: center;
 }
 
+/* Desktop : ligne centrale */
 .experience-timeline::before {
   content: '';
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 4px;
+  width: var(--timeline-line-width);
   background-color: var(--color-primary);
   z-index: 0;
   top: 70px;
@@ -347,14 +525,14 @@ body.dark-mode .carousel-indicators .indicator.active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 110px;
-  height: 110px;
+  width: var(--experience-icon-size-desktop);
+  height: var(--experience-icon-size-desktop);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background-color: var(--color-bg-light);
-  border: 3px solid var(--color-primary);
+  border: var(--experience-icon-border) solid var(--color-primary);
   z-index: 2;
   overflow: hidden;
 }
@@ -370,7 +548,7 @@ body.dark-mode .carousel-indicators .indicator.active {
   top: 50%;
   transform: translateY(-50%);
   padding: 20px;
-  width: 40%;
+  width: 50%;
   background-color: var(--color-bg-light);
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -379,23 +557,96 @@ body.dark-mode .carousel-indicators .indicator.active {
 }
 
 .experience-item:nth-child(even) .experience-content {
-  left: calc(50% + 120px);
+  left: calc(50% + 140px);
 }
 
 .experience-item:nth-child(odd) .experience-content {
-  right: calc(50% + 120px);
+  right: calc(50% + 140px);
 }
 
 body.dark-mode .experience-content {
   background-color: #222;
 }
 
+/* Adaptations mobiles pour les expériences */
+@media (max-width: 768px) {
+  .experience-timeline {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 var(--timeline-padding);
+  }
+  /* La ligne bleue centrée par rapport aux icônes mobiles */
+  .experience-timeline::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--timeline-padding) + var(--experience-icon-center-mobile));
+    top: var(--timeline-vertical-offset);
+    height: calc(100% - (2 * var(--timeline-vertical-offset)));
+    width: var(--timeline-line-width);
+    background-color: var(--color-primary);
+  }
+  
+  .experience-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .experience-icon {
+    flex-shrink: 0;
+    width: var(--experience-icon-size-mobile);
+    height: var(--experience-icon-size-mobile);
+    margin-right: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: static;
+    transform: none;
+    border: var(--experience-icon-border) solid var(--color-primary);
+  }
+  .experience-item .experience-content {
+    position: static;
+    transform: none;
+    flex-grow: 1;
+    padding: 10px;
+    width: auto;
+    margin-right: 10px;
+  }
+}
+
 /* ==================== Section Mes projets ==================== */
+/* Carousel images */
 .owl-carousel .item img {
   width: 100%;
   height: 400px;
   object-fit: cover;
   border-radius: var(--border-radius);
+}
+
+/* --- Carousel : affichage multiple en PC, 1 case en mobile --- */
+.owl-carousel .owl-stage {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.owl-carousel .owl-item {
+  flex: 0 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  width: calc((100% - (3 * var(--spacing))) / 4);
+}
+
+@media (max-width: 1200px) {
+  .owl-carousel .owl-item {
+    width: calc((100% - (2 * var(--spacing))) / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .owl-carousel .owl-item {
+    width: 100%;
+  }
 }
 
 /* ==================== Popup projet ==================== */
@@ -553,10 +804,12 @@ body.dark-mode .close-btn:hover {
 }
 
 .contact-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
 }
 
 .contact-card {
@@ -564,7 +817,6 @@ body.dark-mode .close-btn:hover {
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   padding: 30px 20px;
-  width: 250px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -619,12 +871,17 @@ body.dark-mode .contact-card p {
   margin-bottom: 40px;
 }
 
+/* La grille occupe toute la largeur disponible avec un gap constant, y compris les marges sur les bords */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
 }
 
+/* Chaque carte garde un ratio 1:1 pour être parfaitement carrée */
 .skill-card {
   background-color: var(--color-bg-light);
   border: 1px solid var(--color-border);
@@ -632,6 +889,7 @@ body.dark-mode .contact-card p {
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 1;
 }
 
 .skill-card:hover {
@@ -718,55 +976,16 @@ body.dark-mode .footer-socials a {
   color: var(--color-text-dark);
 }
 
-/* ==================== Adaptations Mobile ==================== */
+/* ==================== Adaptations supplémentaires Mobile ==================== */
 @media (max-width: 768px) {
-  /* Timeline des expériences en une seule ligne */
-  .experience-timeline {
-    width: 100%;
-    padding-left: 20px;
-    margin: 20px auto;
-  }
-  .experience-timeline::before {
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    transform: none;
-  }
   .experience-item {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: 30px;
-    position: relative;
+    margin-bottom: 20px;
   }
-  .experience-icon {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    left: 0;
-    transform: none;
-  }
-  .experience-content {
-    flex-grow: 1;
-    position: relative;
-    left: 0;
-    transform: none;
-    padding: 10px;
-    width: auto;
-  }
-  
-  /* Pour les compétences, une seule colonne */
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Cartes de contact en colonne */
+}
+
+@media (max-width: 768px) {
   .contact-cards {
-    flex-direction: column;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }

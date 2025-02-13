@@ -6,38 +6,28 @@
   <title data-translate="title">Mon Portfolio</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <!-- Google Fonts pour une typographie moderne -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <!-- Feuilles de style -->
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome CSS pour les icônes -->
+  <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  <!-- AOS CSS pour les animations scroll -->
+  <!-- AOS CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 </head>
 <body>
-  <!-- En-tête avec navigation -->
+  <!-- Navigation Desktop (affiche le bouton langue et le bouton mode sombre en bas à droite) -->
   <header>
     <nav aria-label="Navigation principale" data-aos="fade-down">
       <ul class="nav-links">
-        <li>
-          <a href="#about" class="scroll-link" data-translate="about">Qui suis-je ?</a>
-        </li>
-        <li>
-          <a href="#experience" class="scroll-link" data-translate="experience">Mes expériences</a>
-        </li>
-        <li>
-          <a href="#projects" class="scroll-link" data-translate="projects">Mes projets</a>
-        </li>
-        <li>
-          <a href="#skills" class="scroll-link" data-translate="skills">Mes compétences</a>
-        </li>
-        <li>
-          <a href="#contact" class="scroll-link" data-translate="contact">Me contacter</a>
-        </li>
+        <li><a href="#about" class="scroll-link" data-translate="about">Qui suis-je ?</a></li>
+        <li><a href="#experience" class="scroll-link" data-translate="experience">Mes expériences</a></li>
+        <li><a href="#projects" class="scroll-link" data-translate="projects">Mes projets</a></li>
+        <li><a href="#skills" class="scroll-link" data-translate="skills">Mes compétences</a></li>
+        <li><a href="#contact" class="scroll-link" data-translate="contact">Me contacter</a></li>
       </ul>
       <div class="nav-buttons">
         <!-- Bouton pour télécharger le CV -->
@@ -45,7 +35,7 @@
           <img src="assets/icon-cv.png" alt="Télécharger le CV">
           <span data-translate="cvText">CV FR</span>
         </a>
-        <!-- Bouton pour changer la langue -->
+        <!-- Bouton langue -->
         <button id="language-toggle" aria-label="Changer la langue">
           <img src="assets/icon-fr.png" alt="Changer de langue">
         </button>
@@ -53,7 +43,45 @@
     </nav>
   </header>
 
-  <!-- Bouton pour changer le thème -->
+  <!-- Bouton hamburger pour mobile -->
+  <button id="mobile-menu-toggle" onclick="document.getElementById('mobile-sidebar').classList.toggle('active')">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Sidebar mobile améliorée avec barre de retour -->
+  <div id="mobile-sidebar">
+    <div class="sidebar-header">
+      <button onclick="document.getElementById('mobile-sidebar').classList.remove('active')">
+        <i class="fas fa-arrow-left"></i> Retour
+      </button>
+    </div>
+    <ul>
+      <li><a href="#about" class="scroll-link" data-translate="about">Qui suis-je ?</a></li>
+      <li><a href="#experience" class="scroll-link" data-translate="experience">Mes expériences</a></li>
+      <li><a href="#projects" class="scroll-link" data-translate="projects">Mes projets</a></li>
+      <li><a href="#skills" class="scroll-link" data-translate="skills">Mes compétences</a></li>
+      <li><a href="#contact" class="scroll-link" data-translate="contact">Me contacter</a></li>
+    </ul>
+    <!-- Bouton CV dans la sidebar -->
+    <div class="cv-mobile">
+      <a id="cv-download-mobile" href="CV_Julien_SALEH_FR.pdf" target="_blank">
+        <img src="assets/icon-cv.png" alt="Télécharger le CV">
+        <span data-translate="cvText">CV FR</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Boutons fixes pour mobile : langue et mode sombre -->
+  <div id="mobile-toggles">
+    <button id="mobile-lang-toggle" aria-label="Changer la langue">
+      <img src="assets/icon-fr.png" alt="Changer de langue">
+    </button>
+    <button id="mobile-dark-toggle" aria-label="Changer le thème">
+      <img src="assets/icon-moon.png" alt="Changer de thème">
+    </button>
+  </div>
+
+  <!-- Bouton thème pour desktop (visible en dehors du header) -->
   <button id="theme-toggle" aria-label="Changer le thème" data-aos="fade-up">
     <img src="assets/icon-moon.png" alt="Changer de thème">
   </button>
@@ -171,19 +199,17 @@
           <h3 data-translate="project3Title">Éolienne urbaine</h3>
           <p data-translate="project3Desc">Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
         </div>
-        <!-- Répétition pour le carrousel (Projet 1) -->
+        <!-- Répétitions pour le carrousel -->
         <div class="item" data-description="Description complète du projet 1." data-aos="zoom-in">
           <img src="assets/project1.jpg" alt="Projet 1">
           <h3 data-translate="project1Title">Coupe de France de Robotique</h3>
           <p data-translate="project1Desc">Développement de robots autonomes pour des compétitions internationales.</p>
         </div>
-        <!-- Répétition pour le carrousel (Projet 2) -->
         <div class="item" data-description="Description complète du projet 2." data-aos="zoom-in">
           <img src="assets/project2.jpg" alt="Projet 2">
           <h3 data-translate="project2Title">Station blanche embarquée</h3>
           <p data-translate="project2Desc">Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
         </div>
-        <!-- Répétition pour le carrousel (Projet 3) -->
         <div class="item" data-description="Description complète du projet 3." data-aos="zoom-in">
           <img src="assets/project3.jpg" alt="Projet 3">
           <h3 data-translate="project3Title">Éolienne urbaine</h3>
@@ -195,7 +221,7 @@
     </section>
     <hr>
     
-    <!-- Popup pour afficher les détails du projet -->
+    <!-- Popup projet -->
     <div id="project-popup" class="popup">
       <div class="popup-content">
         <span class="close-btn">&times;</span>
@@ -363,22 +389,7 @@
   <!-- Scripts JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- AOS JS pour les animations scroll -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="script.js" defer></script>
-  
-  <!-- Popup pour afficher les détails du projet -->
-  <div id="project-popup" class="popup">
-    <div class="popup-content">
-      <span class="close-btn">&times;</span>
-      <div class="popup-left">
-        <img src="" alt="Image du projet" id="popup-image">
-      </div>
-      <div class="popup-right">
-        <h3 id="popup-title" data-translate="popupTitle">Titre du projet</h3>
-        <p id="popup-description" data-translate="popupDesc">Description complète du projet.</p>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
