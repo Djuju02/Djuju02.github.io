@@ -1,292 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Julien Saleh — Portfolio</title>
-  <meta name="description" content="Portfolio de Julien Saleh : projets, expériences, compétences en cybersécurité, développement et IoT.">
-  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="preload" as="image" href="assets/picture-perso.jpg">
-  <meta property="og:title" content="Julien Saleh — Portfolio">
-  <meta property="og:description" content="Portfolio de Julien Saleh : projets, expériences, compétences en cybersécurité, développement et IoT.">
-  <meta property="og:image" content="assets/picture-perso.jpg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://julien02.github.io/">
-  <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "Person", "name": "Julien Saleh", "url": "https://Djuju02.github.io/", "sameAs": ["https://www.linkedin.com/in/juliensaleh/"], "email": "mailto:juliensaleh@hotmail.fr", "jobTitle": "Ingénieur numérique (cybersécurité / IoT)"}
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="site.title">Julien Saleh · Portfolio</title>
+  <meta name="description" content="Portfolio de Julien Saleh — projets, expériences et compétences en cybersécurité, IoT et développement web." />
+  <meta property="og:title" content="Julien Saleh · Portfolio" />
+  <meta property="og:description" content="Projets, expériences et compétences en cybersécurité, IoT et développement web." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#6f3cff" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Aller au contenu</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skipToContent">Aller au contenu</a>
 
-  <header class="site-header" data-elevate>
-    <div class="container">
-      <a class="brand" href="#" aria-label="Accueil">
-        <span class="logo">JS</span><span class="brand-text">Julien<span class="accent">Saleh</span></span>
-      </a>
-
-      <nav class="nav" aria-label="Navigation principale">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">☰</button>
-        <ul id="primary-menu" class="menu">
-          <li><a href="#about">Qui suis-je</a></li>
-          <li><a href="#experience">Expériences</a></li>
-          <li><a href="#projects">Projets</a></li>
-          <li><a href="#skills">Compétences</a></li>
-          <li><a href="#contact">Contact</a></li>
+  <header class="site-header" id="top">
+    <div class="container nav-container">
+      <a href="#hero" class="brand" aria-label="Accueil" data-i18n="brand">JS</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Ouvrir le menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="primaryNav" class="nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Expériences</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
+        <div class="lang-switcher" role="group" aria-label="Changer la langue">
+          <button class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
       </nav>
-
-      <div class="header-actions">
-        <a class="btn" href="CV_Julien_SALEH_FR.pdf" target="_blank" rel="noopener">CV FR</a>
-        <a class="btn ghost" href="CV_Julien_SALEH_EN.pdf" target="_blank" rel="noopener">CV EN</a>
-        <button id="theme-toggle" class="icon-btn" aria-label="Changer le thème" title="Changer le thème">🌙</button>
-      </div>
     </div>
+    <div class="nav-accent"></div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-text">
-            <h1>Bonjour, je suis <span class="accent">Julien Saleh</span>.</h1>
-            <p class="lead">Ingénieur numérique en <strong>cybersécurité</strong>, <strong>IoT</strong> et <strong>développement</strong>. J'aime transformer des idées en produits fiables — rapides, accessibles et élégants.</p>
-            <div class="hero-cta">
-              <a class="btn" href="#projects">Voir mes projets</a>
-              <a class="btn ghost" href="#contact">Me contacter</a>
-            </div>
-            <ul class="meta">
-              <li>Basé à Paris</li>
-              <li><span class="dot"></span> Disponible pour alternance/mission</li>
-            </ul>
-          </div>
-          <div class="hero-media">
-            <figure class="portrait">
-              <img src="assets/picture-perso.jpg" alt="Photo de Julien Saleh" width="640" height="640" loading="eager" decoding="async">
-            </figure>
-          </div>
+    <section id="hero" class="section hero">
+      <div class="container hero-inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Bonjour, je suis</p>
+        <h1 class="hero-title"><span class="grad" data-i18n="hero.name">Julien Saleh</span></h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Pentester & créateur d’outils — cybersécurité, IoT et web.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="#projects" data-i18n="cta.viewWork">Voir mes projets</a>
+          <a class="btn btn-ghost" href="#contact" data-i18n="cta.contact">Me contacter</a>
         </div>
       </div>
     </section>
 
     <section id="about" class="section">
-      <div class="container narrow">
-        <h2>Qui suis‑je&nbsp;?</h2>
-        <p>Passionné par la technologie et l&#x27;innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l&#x27;affût des dernières avancées technologiques, je m&#x27;efforce de créer des solutions sécurisées et innovantes. N&#x27;hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l&#x27;informatique.</p>
+      <div class="container">
+        <h2 class="section-title" data-i18n="about.title">À propos</h2>
+        <p data-i18n="about.body">Je conçois et sécurise des systèmes. J’aime auditer, automatiser et livrer des interfaces claires. Ici, vous trouverez une sélection de projets et d’expériences récentes.</p>
       </div>
     </section>
 
-    <section id="experience" class="section alt">
+    <section id="experience" class="section">
       <div class="container">
-        <h2>Expériences</h2>
-        <ol class="timeline">
-          
-      <li class="timeline-item">
-        <div class="timeline-icon"><img src="assets/ESILV.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="timeline-content">
-          <h3>ESILV - Ingénieur numérique</h3>
-          <p class="muted">2020 -  2025</p>
-          <p>Etudiant à l&#x27;ESILV en master Objects Connectés et Cybersécurité</p>
-        </div>
-      </li>
-    
-
-      <li class="timeline-item">
-        <div class="timeline-icon"><img src="assets/Accor.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="timeline-content">
-          <h3>Stage chez Accor - 4 mois</h3>
-          <p class="muted">2024</p>
-          <p>Participation à des pentests.</p>
-        </div>
-      </li>
-    
-
-      <li class="timeline-item">
-        <div class="timeline-icon"><img src="assets/nely.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="timeline-content">
-          <h3>Nely - Stagiaire IT</h3>
-          <p class="muted">2023</p>
-          <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
-        </div>
-      </li>
-    
-
-      <li class="timeline-item">
-        <div class="timeline-icon"><img src="assets/RTU.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="timeline-content">
-          <h3>Riga Technical University - Semestre d&#x27;échange</h3>
-          <p class="muted">2022</p>
-          <p>Echange international en Lettonie.</p>
-        </div>
-      </li>
-    
-
-      <li class="timeline-item">
-        <div class="timeline-icon"><img src="assets/SH.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="timeline-content">
-          <h3>Safe Handling - Stagiaire IT</h3>
-          <p class="muted">2022</p>
-          <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
-        </div>
-      </li>
-    
-
-      <li class="timeline-item">
-        <div class="timeline-icon"><img src="assets/NDO.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="timeline-content">
-          <h3>Collège Lycée Notre-Dame des Oiseaux</h3>
-          <p class="muted">2017 - 2020</p>
-          <p>Baccalauréat scientifique spécialité mathématiques - mention bien</p>
-        </div>
-      </li>
-    
+        <h2 class="section-title" data-i18n="exp.title">Expériences</h2>
+        <ol class="timeline" aria-label="Parcours">
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <h3 data-i18n="exp.0.title">Consultant sécurité — Deloitte</h3>
+              <p class="meta"><span data-i18n="exp.0.when">2024 — 2025</span> · <span data-i18n="exp.0.where">Paris</span></p>
+              <p data-i18n="exp.0.body">EBIOS RM, pentests, durcissement Red Team, outillage DevSecOps.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <h3 data-i18n="exp.1.title">Projets IoT & sécurité</h3>
+              <p class="meta"><span data-i18n="exp.1.when">2023 — 2024</span></p>
+              <p data-i18n="exp.1.body">Capteurs IR, UART, simulation AVR, traçage GPS + thermographie.</p>
+            </div>
+          </li>
         </ol>
       </div>
     </section>
 
     <section id="projects" class="section">
       <div class="container">
-        <div class="section-head">
-          <h2>Projets</h2>
-          <div class="filters" role="group" aria-label="Filtrer les projets">
-            <button class="chip is-active" data-filter="all">Tous</button>
-            <button class="chip" data-filter="iot">IoT</button>
-            <button class="chip" data-filter="web">Web</button>
-            <button class="chip" data-filter="sec">Cyber</button>
-          </div>
+        <h2 class="section-title" data-i18n="projects.title">Projets</h2>
+        <div class="chips" role="toolbar" aria-label="Filtres de projets">
+          <button class="chip is-active" data-filter="all" data-i18n="filter.all">Tous</button>
+          <button class="chip" data-filter="web" data-i18n="filter.web">Web</button>
+          <button class="chip" data-filter="iot" data-i18n="filter.iot">IoT</button>
+          <button class="chip" data-filter="sec" data-i18n="filter.sec">Sécurité</button>
         </div>
-        <div class="projects-grid">
-          
-      <article class="project-card" data-tags="">
-        <div class="project-media">
-          <img src="assets/project1.jpg" alt="Coupe de France de Robotique" loading="lazy" decoding="async">
-        </div>
-        <div class="project-body">
-          <h3>Coupe de France de Robotique</h3>
-          <p>Développement de robots autonomes pour des compétitions internationales.</p>
-          <button class="btn-tertiary project-more" aria-haspopup="dialog" data-title="Coupe de France de Robotique" data-desc="Description complète du projet 1." data-img="assets/project1.jpg">En savoir plus</button>
-        </div>
-      </article>
-    
-
-      <article class="project-card" data-tags="">
-        <div class="project-media">
-          <img src="assets/project2.jpg" alt="Station blanche embarquée" loading="lazy" decoding="async">
-        </div>
-        <div class="project-body">
-          <h3>Station blanche embarquée</h3>
-          <p>Création d&#x27;une plateforme de diagnostic embarqué pour véhicules connectés.</p>
-          <button class="btn-tertiary project-more" aria-haspopup="dialog" data-title="Station blanche embarquée" data-desc="Description complète du projet 2." data-img="assets/project2.jpg">En savoir plus</button>
-        </div>
-      </article>
-    
-
-      <article class="project-card" data-tags="">
-        <div class="project-media">
-          <img src="assets/project3.jpg" alt="Éolienne urbaine" loading="lazy" decoding="async">
-        </div>
-        <div class="project-body">
-          <h3>Éolienne urbaine</h3>
-          <p>Conception d&#x27;une éolienne compacte adaptée aux environnements urbains.</p>
-          <button class="btn-tertiary project-more" aria-haspopup="dialog" data-title="Éolienne urbaine" data-desc="Description complète du projet 3." data-img="assets/project3.jpg">En savoir plus</button>
-        </div>
-      </article>
-    
+        <div class="grid projects-grid">
+          <article class="project-card" data-tags="web,sec">
+            <div class="project-media" aria-hidden="true">
+              <img src="assets/placeholder.webp" alt="" loading="lazy" />
+            </div>
+            <div class="project-content">
+              <h3 data-i18n="proj.sample.title">Audit HTTP · Verb Tampering</h3>
+              <p data-i18n="proj.sample.body">Contournement d’auth HTTP via méthodes non standard, tooling Burp/cURL.</p>
+              <div class="project-actions">
+                <button class="btn btn-solid project-view" data-i18n="proj.sample.cta">Voir</button>
+                <a class="btn btn-ghost" href="#" target="_blank" rel="noopener" data-i18n="proj.sample.link">Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-tags="iot,sec">
+            <div class="project-media" aria-hidden="true">
+              <img src="assets/placeholder.webp" alt="" loading="lazy" />
+            </div>
+            <div class="project-content">
+              <h3 data-i18n="proj.sample2.title">UART & AVR Registry</h3>
+              <p data-i18n="proj.sample2.body">Capture UART, identification de pins MCU, debug simavr & GTKWave.</p>
+              <div class="project-actions">
+                <button class="btn btn-solid project-view" data-i18n="proj.sample.cta">Voir</button>
+                <a class="btn btn-ghost" href="#" target="_blank" rel="noopener" data-i18n="proj.sample.link">Code</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
+
+      <dialog id="projectModal" class="modal">
+        <form method="dialog" class="modal-surface">
+          <header class="modal-header">
+            <h3 id="modalTitle">Titre projet</h3>
+            <button class="icon-btn" value="cancel" aria-label="Fermer">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.7 6.3a1 1 0 0 0-1.4 0L12 10.6 7.7 6.3A1 1 0 1 0 6.3 7.7L10.6 12 6.3 16.3a1 1 0 0 0 1.4 1.4L12 13.4l4.3 4.3a1 1 0 0 0 1.4-1.4L13.4 12l4.3-4.3a1 1 0 0 0 0-1.4z"/></svg>
+            </button>
+          </header>
+          <div id="modalBody" class="modal-body"></div>
+        </form>
+      </dialog>
     </section>
 
-    <section id="skills" class="section alt">
+    <section id="skills" class="section">
       <div class="container">
-        <h2>Compétences</h2>
-        <div class="skills-grid">
-          
-      <section class="skill-group">
-        <h3>Développement</h3>
-        <ul class="skill-list">
-          <li>Langages : C#, C, C++, Python, JavaScript, TypeScript, HTML, CSS, LaTeX</li><li>Technologies : JSON, XML, Git</li>
+        <h2 class="section-title" data-i18n="skills.title">Compétences</h2>
+        <ul class="skills">
+          <li>Web · HTML/CSS/JS, Angular</li>
+          <li>Security · Pentest, EBIOS RM, OPSEC</li>
+          <li>IoT · Arduino, UART, capteurs IR</li>
+          <li>Tools · Docker, Git, Burp, Nginx</li>
         </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Réseau &amp; Systèmes</h3>
-        <ul class="skill-list">
-          <li>Outils : Wireshark, Cisco Packet Tracer, VirtualBox, Docker</li><li>Systèmes : Linux (Kali, Ubuntu), Windows, MacOS</li>
-        </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Cybersécurité</h3>
-        <ul class="skill-list">
-          <li>Concepts : OWASP Top 10, Cryptographie, Sécurité réseau</li><li>Outils : Burp Suite, Reverse Engineering</li>
-        </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Bases de Données</h3>
-        <ul class="skill-list">
-          <li>SGBD : MySQL, Oracle</li><li>Modélisation : Conception de bases de données</li>
-        </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Soft Skills</h3>
-        <ul class="skill-list">
-          <li>Leadership et gestion d&#x27;équipe</li><li>Travail en équipe</li><li>Design Thinking</li><li>Méthodologies Agiles (Scrum)</li>
-        </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Certifications</h3>
-        <ul class="skill-list">
-          <li>TOEIC : 900/990</li><li>Certification Agile Scrum</li><li>Diplôme de Design Thinking</li>
-        </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Langues</h3>
-        <ul class="skill-list">
-          <li>Français : Langue maternelle</li><li>Anglais : Niveau B2</li><li>Espagnol : Notions</li><li>Arabe : Notions</li>
-        </ul>
-      </section>
-    
-
-      <section class="skill-group">
-        <h3>Centres d&#x27;intérêts</h3>
-        <ul class="skill-list">
-          <li>Tennis (17 ans)</li><li>Escalade</li><li>Voyages</li><li>Robotique &amp; Modélisation 3D</li><li>Cuisine</li>
-        </ul>
-      </section>
-    
-        </div>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <div class="container narrow">
-        <h2>Contact</h2>
-        <p>Envie de discuter d’un projet, d’une opportunité, ou simplement d’échanger sur des sujets qui nous passionnent&nbsp;?</p>
-        <div class="contact-row">
-          <a class="contact-card" href="https://www.linkedin.com/in/juliensaleh/" target="_blank" rel="noopener">
-            <img src="assets/icon-linkedin.png" alt="" aria-hidden="true">
-            <span>LinkedIn</span>
-          </a>
-          <button class="contact-card" id="copy-mail" data-mail="juliensaleh@hotmail.fr">
-            <img src="assets/icon-mail.png" alt="" aria-hidden="true">
-            <span>juliensaleh@hotmail.fr</span>
-          </button>
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+        <p data-i18n="contact.body">Ouvert aux opportunités, collaborations et missions freelance.</p>
+        <div class="cta">
+          <a class="btn btn-solid" href="mailto:juliensaleh@example.com" data-i18n="contact.email">Envoyer un email</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/julien-saleh" target="_blank" rel="noopener" data-i18n="contact.linkedin">LinkedIn</a>
         </div>
       </div>
     </section>
@@ -294,19 +165,12 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© Julien Saleh • Mis à jour le 2025-08-24</p>
-      <a class="top" href="#top">Retour en haut ↑</a>
+      <p>© <span id="year"></span> <span data-i18n="brand">JS</span>. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
     </div>
   </footer>
 
-  <!-- Dialog projet -->
-  <dialog id="project-dialog" aria-label="Détails du projet">
-    <button class="dialog-close" aria-label="Fermer">✕</button>
-    <img id="dialog-img" alt="" loading="lazy">
-    <h3 id="dialog-title"></h3>
-    <p id="dialog-desc"></p>
-  </dialog>
-
-  <script src="script.js" defer></script>
+  <button id="toTop" class="to-top" aria-label="Revenir en haut" title="Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 9.8V19h-2V9.8L6.4 13.4 5 12z"/></svg>
+  </button>
 </body>
 </html>
