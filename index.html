@@ -1,357 +1,312 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <!-- Feuilles de style -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Julien Saleh — Portfolio</title>
+  <meta name="description" content="Portfolio de Julien Saleh : projets, expériences, compétences en cybersécurité, développement et IoT.">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" as="image" href="assets/picture-perso.jpg">
+  <meta property="og:title" content="Julien Saleh — Portfolio">
+  <meta property="og:description" content="Portfolio de Julien Saleh : projets, expériences, compétences en cybersécurité, développement et IoT.">
+  <meta property="og:image" content="assets/picture-perso.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://julien02.github.io/">
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome CSS pour les icônes -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "name": "Julien Saleh", "url": "https://Djuju02.github.io/", "sameAs": ["https://www.linkedin.com/in/juliensaleh/"], "email": "mailto:juliensaleh@hotmail.fr", "jobTitle": "Ingénieur numérique (cybersécurité / IoT)"}
+  </script>
 </head>
 <body>
-  <!-- En-tête avec navigation -->
-  <header>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#about" class="scroll-link">Qui suis-je ?</a></li>
-        <li><a href="#experience" class="scroll-link">Mes expériences</a></li>
-        <li><a href="#projects" class="scroll-link">Mes projets</a></li>
-        <li><a href="#skills" class="scroll-link">Mes compétences</a></li>
-        <li><a href="#contact" class="scroll-link">Me contacter</a></li>
-      </ul>
-      <div class="nav-buttons">
-        <!-- Bouton pour télécharger le CV -->
-        <a id="cv-download" href="CV_Julien_SALEH_FR.pdf" target="_blank" class="cv-button">
-          <img src="assets/icon-cv.png" alt="Télécharger le CV">
-          <span>CV FR</span>
-        </a>
-        <!-- Bouton pour changer la langue -->
-        <button id="language-toggle" aria-label="Changer la langue">
-          <img src="assets/icon-fr.png" alt="Changer de langue">
-        </button>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header" data-elevate>
+    <div class="container">
+      <a class="brand" href="#" aria-label="Accueil">
+        <span class="logo">JS</span><span class="brand-text">Julien<span class="accent">Saleh</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">☰</button>
+        <ul id="primary-menu" class="menu">
+          <li><a href="#about">Qui suis-je</a></li>
+          <li><a href="#experience">Expériences</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn" href="CV_Julien_SALEH_FR.pdf" target="_blank" rel="noopener">CV FR</a>
+        <a class="btn ghost" href="CV_Julien_SALEH_EN.pdf" target="_blank" rel="noopener">CV EN</a>
+        <button id="theme-toggle" class="icon-btn" aria-label="Changer le thème" title="Changer le thème">🌙</button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <!-- Bouton pour changer le thème -->
-  <button id="theme-toggle" aria-label="Changer le thème">
-    <img src="assets/icon-moon.png" alt="Changer de thème">
-  </button>
-
-  <main>
-    <!-- Section Qui suis-je ? -->
-    <section id="about" class="about-section">
-      <div class="about-container">
-        <div class="about-image">
-          <img src="assets/picture-perso.jpg" alt="Photo de Julien Saleh">
-        </div>
-        <div class="about-text">
-          <h2>Qui suis-je ?</h2>
-          <p>Passionné par la technologie et l'innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l'affût des dernières avancées technologiques, je m'efforce de créer des solutions sécurisées et innovantes. N'hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l'informatique.</p>
-        </div>
-      </div>
-    </section>
-    <hr>
-
-    <!-- Section Mes expériences -->
-    <section id="experience">
-      <h2>Mes expériences</h2>
-      <div class="experience-timeline">
-        <!-- Expérience 1 -->
-        <div class="experience-item">
-          <div class="experience-icon">
-            <img src="assets\ESILV.png" alt="Icône Cybersécurité">
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1>Bonjour, je suis <span class="accent">Julien Saleh</span>.</h1>
+            <p class="lead">Ingénieur numérique en <strong>cybersécurité</strong>, <strong>IoT</strong> et <strong>développement</strong>. J'aime transformer des idées en produits fiables — rapides, accessibles et élégants.</p>
+            <div class="hero-cta">
+              <a class="btn" href="#projects">Voir mes projets</a>
+              <a class="btn ghost" href="#contact">Me contacter</a>
+            </div>
+            <ul class="meta">
+              <li>Basé à Paris</li>
+              <li><span class="dot"></span> Disponible pour alternance/mission</li>
+            </ul>
           </div>
-          <div class="experience-content">
-            <h3>ESILV - Ingénieur numérique</h3>
-            <p>2020 -  2025</p>
-            <p>Etudiant à l'ESILV en master Objects Connectés et Cybersécurité</p>
-          </div>
-        </div>
-        <!-- Expérience 2 -->
-        <div class="experience-item">
-          <div class="experience-icon">
-            <img src="assets\Accor.png" alt="Icône IoT">
-          </div>
-          <div class="experience-content">
-            <h3>Stage chez Accor - 4 mois</h3>
-            <p>2024</p>
-            <p>Participation à des pentests.</p>
-          </div>
-        </div>
-        <!-- Expérience 3 -->
-        <div class="experience-item">
-          <div class="experience-icon">
-            <img src="assets\nely.png" alt="Icône Développement Logiciel">
-          </div>
-          <div class="experience-content">
-            <h3>Nely - Stagiaire IT</h3>
-            <p>2023</p>
-            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
-          </div>
-        </div>
-        <!-- Expérience 4 -->
-        <div class="experience-item">
-          <div class="experience-icon">
-            <img src="assets\RTU.png" alt="Icône IoT">
-          </div>
-          <div class="experience-content">
-            <h3>Riga Technical University - Semestre d'échange</h3>
-            <p>2022</p>
-            <p>Echange international en Lettonie.</p>
-          </div>
-        </div>
-        <!-- Expérience 5 -->
-        <div class="experience-item">
-          <div class="experience-icon">
-            <img src="assets\SH.png" alt="Icône Cybersécurité">
-          </div>
-          <div class="experience-content">
-            <h3>Safe Handling - Stagiaire IT</h3>
-            <p>2022</p>
-            <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
-          </div>
-        </div>
-        <!-- Expérience 6 -->
-        <div class="experience-item">
-          <div class="experience-icon">
-            <img src="assets\NDO.png" alt="Icône IoT">
-          </div>
-          <div class="experience-content">
-            <h3>Collège Lycée Notre-Dame des Oiseaux</h3>
-            <p>2017 - 2020</p>
-            <p>Baccalauréat scientifique spécialité mathématiques - mention bien</p>
+          <div class="hero-media">
+            <figure class="portrait">
+              <img src="assets/picture-perso.jpg" alt="Photo de Julien Saleh" width="640" height="640" loading="eager" decoding="async">
+            </figure>
           </div>
         </div>
       </div>
     </section>
-    <hr>
 
-    <!-- Section Mes projets -->
-    <section id="projects">
-      <h2>Mes projets</h2>
-      <div class="owl-carousel">
-        <!-- Projet 1 -->
-        <div class="item" data-description="Description complète du projet 1.">
-          <img src="assets/project1.jpg" alt="Projet 1">
+    <section id="about" class="section">
+      <div class="container narrow">
+        <h2>Qui suis‑je&nbsp;?</h2>
+        <p>Passionné par la technologie et l&#x27;innovation, je suis un ingénieur spécialisé en cybersécurité avec une solide expérience en développement et en réseaux. Toujours à l&#x27;affût des dernières avancées technologiques, je m&#x27;efforce de créer des solutions sécurisées et innovantes. N&#x27;hésitez pas à me contacter pour discuter de projets, collaborer ou simplement partager notre passion commune pour l&#x27;informatique.</p>
+      </div>
+    </section>
+
+    <section id="experience" class="section alt">
+      <div class="container">
+        <h2>Expériences</h2>
+        <ol class="timeline">
+          
+      <li class="timeline-item">
+        <div class="timeline-icon"><img src="assets/ESILV.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="timeline-content">
+          <h3>ESILV - Ingénieur numérique</h3>
+          <p class="muted">2020 -  2025</p>
+          <p>Etudiant à l&#x27;ESILV en master Objects Connectés et Cybersécurité</p>
+        </div>
+      </li>
+    
+
+      <li class="timeline-item">
+        <div class="timeline-icon"><img src="assets/Accor.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="timeline-content">
+          <h3>Stage chez Accor - 4 mois</h3>
+          <p class="muted">2024</p>
+          <p>Participation à des pentests.</p>
+        </div>
+      </li>
+    
+
+      <li class="timeline-item">
+        <div class="timeline-icon"><img src="assets/nely.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="timeline-content">
+          <h3>Nely - Stagiaire IT</h3>
+          <p class="muted">2023</p>
+          <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
+        </div>
+      </li>
+    
+
+      <li class="timeline-item">
+        <div class="timeline-icon"><img src="assets/RTU.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="timeline-content">
+          <h3>Riga Technical University - Semestre d&#x27;échange</h3>
+          <p class="muted">2022</p>
+          <p>Echange international en Lettonie.</p>
+        </div>
+      </li>
+    
+
+      <li class="timeline-item">
+        <div class="timeline-icon"><img src="assets/SH.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="timeline-content">
+          <h3>Safe Handling - Stagiaire IT</h3>
+          <p class="muted">2022</p>
+          <p>Responsable de la sécurité des infrastructures IT, mise en place de mesures de sécurité proactives.</p>
+        </div>
+      </li>
+    
+
+      <li class="timeline-item">
+        <div class="timeline-icon"><img src="assets/NDO.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="timeline-content">
+          <h3>Collège Lycée Notre-Dame des Oiseaux</h3>
+          <p class="muted">2017 - 2020</p>
+          <p>Baccalauréat scientifique spécialité mathématiques - mention bien</p>
+        </div>
+      </li>
+    
+        </ol>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projets</h2>
+          <div class="filters" role="group" aria-label="Filtrer les projets">
+            <button class="chip is-active" data-filter="all">Tous</button>
+            <button class="chip" data-filter="iot">IoT</button>
+            <button class="chip" data-filter="web">Web</button>
+            <button class="chip" data-filter="sec">Cyber</button>
+          </div>
+        </div>
+        <div class="projects-grid">
+          
+      <article class="project-card" data-tags="">
+        <div class="project-media">
+          <img src="assets/project1.jpg" alt="Coupe de France de Robotique" loading="lazy" decoding="async">
+        </div>
+        <div class="project-body">
           <h3>Coupe de France de Robotique</h3>
           <p>Développement de robots autonomes pour des compétitions internationales.</p>
+          <button class="btn-tertiary project-more" aria-haspopup="dialog" data-title="Coupe de France de Robotique" data-desc="Description complète du projet 1." data-img="assets/project1.jpg">En savoir plus</button>
         </div>
-        <!-- Projet 2 -->
-        <div class="item" data-description="Description complète du projet 2.">
-          <img src="assets/project2.jpg" alt="Projet 2">
-          <h3>Station blanche embarquée</h3>
-          <p>Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
-        </div>
-        <!-- Projet 3 -->
-        <div class="item" data-description="Description complète du projet 3.">
-          <img src="assets/project3.jpg" alt="Projet 3">
-          <h3>Éolienne urbaine</h3>
-          <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
-        </div>
-        <!-- Projet 4 -->
-        <div class="item" data-description="Description complète du projet 1.">
-          <img src="assets/project1.jpg" alt="Projet 1">
-          <h3>Coupe de France de Robotique</h3>
-          <p>Développement de robots autonomes pour des compétitions internationales.</p>
-        </div>
-        <!-- Projet 5 -->
-        <div class="item" data-description="Description complète du projet 2.">
-          <img src="assets/project2.jpg" alt="Projet 2">
-          <h3>Station blanche embarquée</h3>
-          <p>Création d'une plateforme de diagnostic embarqué pour véhicules connectés.</p>
-        </div>
-        <!-- Projet 6 -->
-        <div class="item" data-description="Description complète du projet 3.">
-          <img src="assets/project3.jpg" alt="Projet 3">
-          <h3>Éolienne urbaine</h3>
-          <p>Conception d'une éolienne compacte adaptée aux environnements urbains.</p>
-        </div>
-      </div>
-      <!-- Indicateurs de pagination -->
-      <div class="carousel-indicators"></div>
-    </section>
-    <hr>
+      </article>
+    
 
-      <!-- Section Mes compétences -->
-      <section id="skills" class="skills-section">
-      <h2>Mes compétences</h2>
-      <div class="skills-grid">
-        <!-- Compétence 1 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3>Développement</h3>
-          <ul>
-            <li><strong>Langages :</strong> C#, C, C++, Python, JavaScript, TypeScript, HTML, CSS, LaTeX</li>
-            <li><strong>Technologies :</strong> JSON, XML, Git</li>
-          </ul>
+      <article class="project-card" data-tags="">
+        <div class="project-media">
+          <img src="assets/project2.jpg" alt="Station blanche embarquée" loading="lazy" decoding="async">
         </div>
-        <!-- Compétence 2 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-network-wired"></i>
-          </div>
-          <h3>Réseau & Systèmes</h3>
-          <ul>
-            <li><strong>Outils :</strong> Wireshark, Cisco Packet Tracer, VirtualBox, Docker</li>
-            <li><strong>Systèmes :</strong> Linux (Kali, Ubuntu), Windows, MacOS</li>
-          </ul>
+        <div class="project-body">
+          <h3>Station blanche embarquée</h3>
+          <p>Création d&#x27;une plateforme de diagnostic embarqué pour véhicules connectés.</p>
+          <button class="btn-tertiary project-more" aria-haspopup="dialog" data-title="Station blanche embarquée" data-desc="Description complète du projet 2." data-img="assets/project2.jpg">En savoir plus</button>
         </div>
-        <!-- Compétence 3 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Cybersécurité</h3>
-          <ul>
-            <li><strong>Concepts :</strong> OWASP Top 10, Cryptographie, Sécurité réseau</li>
-            <li><strong>Outils :</strong> Burp Suite, Reverse Engineering</li>
-          </ul>
-        </div>
-        <!-- Compétence 4 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3>Bases de Données</h3>
-          <ul>
-            <li><strong>SGBD :</strong> MySQL, Oracle</li>
-            <li><strong>Modélisation :</strong> Conception de bases de données</li>
-          </ul>
-        </div>
-        <!-- Compétence 5 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-users-cog"></i>
-          </div>
-          <h3>Soft Skills</h3>
-          <ul>
-            <li>Leadership et gestion d'équipe</li>
-            <li>Travail en équipe</li>
-            <li>Design Thinking</li>
-            <li>Méthodologies Agiles (Scrum)</li>
-          </ul>
-        </div>
-        <!-- Compétence 6 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-certificate"></i>
-          </div>
-          <h3>Certifications</h3>
-          <ul>
-            <li>TOEIC : 900/990</li>
-            <li>Certification Agile Scrum</li>
-            <li>Diplôme de Design Thinking</li>
-          </ul>
-        </div>
-        <!-- Compétence 7 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-language"></i>
-          </div>
-          <h3>Langues</h3>
-          <ul>
-            <li>Français : Langue maternelle</li>
-            <li>Anglais : Niveau B2</li>
-            <li>Espagnol : Notions</li>
-            <li>Arabe : Notions</li>
-          </ul>
-        </div>
-        <!-- Compétence 8 -->
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>Centres d'intérêts</h3>
-          <ul>
-            <li>Tennis (17 ans)</li>
-            <li>Escalade</li>
-            <li>Voyages</li>
-            <li>Robotique & Modélisation 3D</li>
-            <li>Cuisine</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <hr>
+      </article>
+    
 
-    <!-- Section Me contacter -->
-    <section id="contact" class="contact-section">
-      <h2>Me contacter</h2>
-      <p>N'hésitez pas à échanger avec moi, je serai ravi de discuter de nouvelles opportunités ou simplement de partager autour de sujets qui nous passionnent.</p>
-      <div class="contact-cards">
-        <!-- Carte LinkedIn -->
-        <div class="contact-card">
-          <a href="https://www.linkedin.com/in/juliensaleh/" target="_blank">
-            <i class="fab fa-linkedin contact-icon"></i>
-            <h3>LinkedIn</h3>
-            <p>linkedin.com/in/juliensaleh/</p>
-          </a>
+      <article class="project-card" data-tags="">
+        <div class="project-media">
+          <img src="assets/project3.jpg" alt="Éolienne urbaine" loading="lazy" decoding="async">
         </div>
-        <!-- Carte Email -->
-        <div class="contact-card">
-          <a href="mailto:juliensaleh@hotmail.fr">
-            <i class="fas fa-envelope contact-icon"></i>
-            <h3>Email</h3>
-            <p>juliensaleh@hotmail.fr</p>
-          </a>
+        <div class="project-body">
+          <h3>Éolienne urbaine</h3>
+          <p>Conception d&#x27;une éolienne compacte adaptée aux environnements urbains.</p>
+          <button class="btn-tertiary project-more" aria-haspopup="dialog" data-title="Éolienne urbaine" data-desc="Description complète du projet 3." data-img="assets/project3.jpg">En savoir plus</button>
         </div>
-        <!-- Carte GitHub -->
-        <div class="contact-card">
-          <a href="https://github.com/Djuju02" target="_blank">
-            <i class="fab fa-github contact-icon"></i>
-            <h3>GitHub</h3>
-            <p>github.com/Djuju02</p>
-          </a>
-        </div>
-        <!-- Carte Root Me -->
-        <div class="contact-card">
-          <a id="rootme-link" href="https://www.root-me.org/Djuju02?lang=fr" target="_blank">
-            <i class="fas fa-user-secret contact-icon"></i>
-            <h3>Root Me</h3>
-            <p>root-me.org/Djuju02</p>
-          </a>
+      </article>
+    
         </div>
       </div>
     </section>
-    <hr>
+
+    <section id="skills" class="section alt">
+      <div class="container">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+          
+      <section class="skill-group">
+        <h3>Développement</h3>
+        <ul class="skill-list">
+          <li>Langages : C#, C, C++, Python, JavaScript, TypeScript, HTML, CSS, LaTeX</li><li>Technologies : JSON, XML, Git</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Réseau &amp; Systèmes</h3>
+        <ul class="skill-list">
+          <li>Outils : Wireshark, Cisco Packet Tracer, VirtualBox, Docker</li><li>Systèmes : Linux (Kali, Ubuntu), Windows, MacOS</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Cybersécurité</h3>
+        <ul class="skill-list">
+          <li>Concepts : OWASP Top 10, Cryptographie, Sécurité réseau</li><li>Outils : Burp Suite, Reverse Engineering</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Bases de Données</h3>
+        <ul class="skill-list">
+          <li>SGBD : MySQL, Oracle</li><li>Modélisation : Conception de bases de données</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Soft Skills</h3>
+        <ul class="skill-list">
+          <li>Leadership et gestion d&#x27;équipe</li><li>Travail en équipe</li><li>Design Thinking</li><li>Méthodologies Agiles (Scrum)</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Certifications</h3>
+        <ul class="skill-list">
+          <li>TOEIC : 900/990</li><li>Certification Agile Scrum</li><li>Diplôme de Design Thinking</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Langues</h3>
+        <ul class="skill-list">
+          <li>Français : Langue maternelle</li><li>Anglais : Niveau B2</li><li>Espagnol : Notions</li><li>Arabe : Notions</li>
+        </ul>
+      </section>
+    
+
+      <section class="skill-group">
+        <h3>Centres d&#x27;intérêts</h3>
+        <ul class="skill-list">
+          <li>Tennis (17 ans)</li><li>Escalade</li><li>Voyages</li><li>Robotique &amp; Modélisation 3D</li><li>Cuisine</li>
+        </ul>
+      </section>
+    
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container narrow">
+        <h2>Contact</h2>
+        <p>Envie de discuter d’un projet, d’une opportunité, ou simplement d’échanger sur des sujets qui nous passionnent&nbsp;?</p>
+        <div class="contact-row">
+          <a class="contact-card" href="https://www.linkedin.com/in/juliensaleh/" target="_blank" rel="noopener">
+            <img src="assets/icon-linkedin.png" alt="" aria-hidden="true">
+            <span>LinkedIn</span>
+          </a>
+          <button class="contact-card" id="copy-mail" data-mail="juliensaleh@hotmail.fr">
+            <img src="assets/icon-mail.png" alt="" aria-hidden="true">
+            <span>juliensaleh@hotmail.fr</span>
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Pied de page -->
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2024 Julien Saleh. Tous droits réservés.</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Julien Saleh • Mis à jour le 2025-08-24</p>
+      <a class="top" href="#top">Retour en haut ↑</a>
     </div>
   </footer>
 
-  <!-- Scripts JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Owl Carousel JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!-- Votre Script -->
+  <!-- Dialog projet -->
+  <dialog id="project-dialog" aria-label="Détails du projet">
+    <button class="dialog-close" aria-label="Fermer">✕</button>
+    <img id="dialog-img" alt="" loading="lazy">
+    <h3 id="dialog-title"></h3>
+    <p id="dialog-desc"></p>
+  </dialog>
+
   <script src="script.js" defer></script>
-
-  <!-- Popup pour afficher les détails du projet -->
-  <div id="project-popup" class="popup">
-    <div class="popup-content">
-      <span class="close-btn">&times;</span>
-      <div class="popup-left">
-        <img src="" alt="Image du projet" id="popup-image">
-      </div>
-      <div class="popup-right">
-        <h3 id="popup-title">Titre du projet</h3>
-        <p id="popup-description">Description complète du projet.</p>
-      </div>
-    </div>
-  </div>
-
 </body>
 </html>
