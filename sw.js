@@ -1,5 +1,5 @@
 // Stratégie "network first" : toujours la dernière version en ligne, cache en secours hors-ligne.
-const VERSION = 'v3.1.0';
+const VERSION = 'v3.2.1';
 const CACHE = 'js-portfolio-' + VERSION;
 const ASSETS = ['./', './index.html', './styles.css', './script.js', './i18n.js', './favicon.svg', './assets/julien-saleh.webp'];
 
