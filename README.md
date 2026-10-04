@@ -1,28 +1,36 @@
+# Julien Saleh — Portfolio
 
-# Nouveau portfolio — Julien Saleh
+Site personnel publié sur **https://djuju02.github.io/**.
 
-Ce dossier contient une refonte complète, optimisée **mobile-first**, accessible et performante.
-- **Aucun framework**: HTML/CSS/JS vanilla ultra légers.
-- **Performances**: pas de librairies lourdes (FontAwesome/OwlCarousel supprimés). Images lazy‑load, CSS moderne.
-- **Accessibilité**: sémantique, contraste, navigation clavier, *skip link*, modale accessible.
-- **Dark mode**: automatique (préférences système) + bouton (persistant).
-- **PWA**: manifest + service worker pour une expérience type app (offline basique).
-- **SEO**: métadonnées, OpenGraph/Twitter, données structurées JSON‑LD.
+HTML, CSS et JavaScript vanilla, sans framework ni dépendance (hors polices Google Fonts).
 
-## Déployer sur GitHub Pages
-1. Créez une branche `main` (si besoin).
-2. Copiez le contenu de ce dossier à la racine de `Djuju02.github.io` (remplacez l'existant).
-3. `git add . && git commit -m "refonte portfolio" && git push`.
-4. Dans **Settings → Pages**, source : `Deploy from a branch`, branche : `main` (ou `master`).
+- **Bilingue FR / EN** : le français est écrit directement dans `index.html`, l’anglais dans `i18n.js` (même clé `data-i18n`). Le choix est mémorisé.
+- **Thème clair / sombre** : suit le système, bouton pour forcer, choix mémorisé.
+- **Accessibilité** : skip link, navigation clavier, `prefers-reduced-motion` respecté.
+- **SEO** : balises Open Graph, URL canonique, données structurées JSON-LD (`Person`).
+- **PWA** : `manifest.webmanifest` + `sw.js` (réseau d’abord, cache en secours hors-ligne).
 
-## Personnaliser
-- **Contenu**: modifiez directement `index.html` (sections *Expériences*, *Projets*, *Compétences*, *Contact*).
-- **Tags de projets**: ajoutez `data-tags="iot,web,sec"` sur `.project-card` pour activer le filtrage.
-- **Couleurs**: changez les variables CSS en haut de `styles.css`.
-- **Icônes**: remplacez `favicon.svg`, `icon-192.png`, `icon-512.png`.
-- **PWA**: adaptez `manifest.webmanifest` (nom, couleurs), et `sw.js` (stratégie de cache).
+## Structure
 
-## TODO (optionnel)
-- Page projet détaillée par projet.
-- Section *Recommandations* / *Certificats*.
-- Suivi léger analytics côté serveur (pas de tracker intrusif).
+| Fichier | Rôle |
+| --- | --- |
+| `index.html` | Contenu (FR) et structure de la page |
+| `i18n.js` | Traductions anglaises |
+| `styles.css` | Styles — couleurs dans les variables `:root` en haut du fichier |
+| `script.js` | Menu, filtres projets, thème, langue, animations |
+| `assets/` | Photo et logos |
+| `CV_Julien_SALEH_FR.pdf` / `_EN.pdf` | CV téléchargeables depuis le bouton du hero |
+
+## Modifier le contenu
+
+1. Modifier le texte français dans `index.html`.
+2. Si l’élément a un attribut `data-i18n="cle"`, mettre à jour la même clé dans `i18n.js`.
+3. Pour un nouveau projet : copier un `<article class="project">` ; `data-tags` accepte `off`, `def`, `iot`, `web` (filtres).
+4. Après une modification importante, incrémenter `VERSION` dans `sw.js` pour invalider le cache.
+
+## Tester en local
+
+```bash
+python3 -m http.server 8000
+# puis ouvrir http://localhost:8000
+```
