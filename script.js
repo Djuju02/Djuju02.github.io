@@ -79,8 +79,6 @@
   $$("[data-i18n-alt]").forEach(el => { FR[el.dataset.i18nAlt] = el.getAttribute("alt"); });
   FR["tools.lang"] = "Switch to English";
   const dicts = { fr: FR, en: window.I18N_EN || {} };
-  const cv = $("#cvLink");
-  const cvFr = cv.getAttribute("href");
 
   const setLang = (lang) => {
     const d = dicts[lang], t = k => d[k] ?? FR[k];
@@ -90,7 +88,6 @@
     document.title = t("meta.title");
     root.lang = lang;
     $(".lang-label").textContent = lang === "fr" ? "EN" : "FR";
-    cv.setAttribute("href", lang === "en" ? cv.dataset.hrefEn : cvFr);
     store.set("lang", lang);
   };
   $("#langToggle").addEventListener("click", () => setLang(root.lang === "fr" ? "en" : "fr"));
